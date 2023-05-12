@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kisan-facility",
+  "private_key_id": "f7c37f95b172a74537c196593ff41ffa96844582",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDePpagdx16YFnm\nYgL9gqC9LiBbSh+PGzoLyxXgGUKxROkoS9HmmozUUlpKUCTqdfUPCxjmpVqk4prW\nEZy5Hdvn6lFK0avORtsCAT9toOCIoviKRdQzviPGFSn+J9pBjbyFp3OUVwfihABY\nloJy9xwxZxNeCZRtt8hvAlw6Y9aI4mnUN5fKAWHACSlIjVFivNMzLCgCWucVlRIT\nOjlTruBu0ttLzl3vmrBDgE2nsvGp/zD0tyEgRExP3swZsOTpqfweV0VWdDtQkoGb\nZkDKxbbhN6d2pd3dniDIjo8qwZeEf54xcMA5clfA/0dWPOZYMggP0dpJ4nx8+EhM\nFSL+dk3vAgMBAAECggEAHwn8vYKFUm8cfymXI1LYIjPL/xP2HmV+EOGXN4ovn1Rx\nf9g/A4b4PjsWMyTIUxqQVD6Hhsb3RuoDF/yzt8Ls0JIQMnPgG9oXgkssUaJTWaHx\nNlaUUXmvw113VPC58cfa2YvOf5w8FK284qJ6q5XJkTjFIrAR09UEIETjHqCM+Obr\nmz4gkQ+nbUK4bI982FQONdCsFvJXFY9+Ioi6sxyszx895adEoJZ2xWJooyxVfkcM\n8bF8f36isj/ACA2zDMAg4VGMOYSoRN4RRhkV5pP4jQVHHC/RyE738wv7HAB/ROOR\nskvrzgbaLPBALxoVS0pV9vUCH3LaKRJOix0okJLgWQKBgQD1i2/2EnHSel6nKK9e\nc779xFuP4eNyV0oz/1YkBJorqeNJKmkvoyZwaC8LbdJImh4mWm876q8VZ5zYH2Ev\nDiUxhYsmq7Y7ACUCtwiUI4RtrKG4116f6ZXU7C/GQkSlUB37/2R8Duyl9jpwiJA8\nq2LVlCb6QEz1Hts7Io5Zc5GlnQKBgQDntSrCUtade5YLOHRFVdYTItOPxlas747B\nt2a/a67C7WCmGm0k57USTKuuiJxs6WDoy5snVBfhU090RuXfdnY62hCg6qeTeOOw\nR9dsY9p36fD3q89zpmzr5hr7z+oSzj5DsS12bYR8dgn5lkKtYmwYk1ujBjqALoZz\nA3DsrdeR+wKBgQC8QDQNX2S+bq0E0S9qZakHG7TrIc7kCcJNDTS4loKweSZVINvV\n9upwgZ+XzpHKscXtt6XSNQIYkgBwvdYfYmPnjK/7bOhgYaL+at9726MbBqBSe2QD\ni+0gehfCk2nXqA3k9o/OgQ6zyoxRXJHgwbEbd+NON2AJCaggtUSXlgATDQKBgCv9\nLwL5axk2z0OOEjTfmObFI9kV1Hq8eCO6x9zreqAzJLgkKDhrbOrud2GJOflLTUSk\n8u3Cf04d3OW8WAPWn5eIssN6CRpsRv2+hd1kD6PYXBEJIzdXjzIx20mXLV8onJWJ\nW5IyNIbUegxSRJJaLx9zSmBm3FBdhNTtAFFOp7BlAoGBAKodwDo1Sy8nthOu4yde\nMuQOdLmqlLXoyXuPLQ7yi4t9zcXf2PzS+EmPnaJ2J/63RSrRJV3CpSbXBWvIHv9k\ney4Ydd9EcAvIEa4uul0Vz13/F5I3oK1X06LgqvSCrH33R5ag9HbAp/B+Wq33cBxr\ndZlCIux0oBRoIad7o1AC6R/6\n-----END PRIVATE KEY-----\n",
+  "client_email": "kisan-facility@kisan-facility.iam.gserviceaccount.com",
+  "client_id": "101769932654741922615",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kisan-facility%40kisan-facility.iam.gserviceaccount.com"
+}

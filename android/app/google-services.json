@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1061397932233",
+    "project_id": "kisan-facility",
+    "storage_bucket": "kisan-facility.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061397932233:android:4d209d9ee7ca2bab23c518",
+        "android_client_info": {
+          "package_name": "com.youngtechie.kisanfacility"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061397932233-pjd570d3sp2m646qu1nelrqpeuafh9qm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0v_V84UsjZrH6f2FG20HOa0UwRYn9fjk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061397932233-pjd570d3sp2m646qu1nelrqpeuafh9qm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

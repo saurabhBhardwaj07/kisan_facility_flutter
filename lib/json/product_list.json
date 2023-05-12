@@ -1,0 +1,75 @@
+[
+    {
+        "productTitles": "Oxyfluorfen 23.5 %EC",
+        "short_description": "Oxygold is a pre and early post emergence diphenyl ether group based herbicide controls wide range of broad leaf weeds & some annual grasses.",
+       "description":"- Broad spectrum weed control - Strong contact & residual action - Green chemistry safe to environment & users - Flexibility in application  - Longer duration of control - Safe for crop",
+        "regularPrice": 500,
+        "salesPrice": 420,
+        "productImages" : [
+            {
+                "id": 0,
+                "name": "qwertyui",
+                "url": "https://cdn.storehippo.com/s/6204bf2ecd8cdec2b3b45115/63b814fd0cc66d001994cfff/webp/oxygold-38-640x640.jpg"
+            }
+        ],
+        "stockStatus" : "available",
+        "stockQuantity": 10,
+        "isFavorite": true,
+        "totalLikes": 200
+    },
+    {
+        "productTitles": "Tower-71",
+        "short_description": "It is a broad-spectrum systemic herbicide used to kill weeds, especially annual broadleaf weeds and grasses known to compete with commercial crops grown around the globe.",
+       "description":" It inhibits a plant enzyme involved in the synthesis of the aromatic amino acids: tyrosine, tryptophan, and phenylalanine. It is absorbed through foliage, and minimally through roots and translocated to growing points. Because of this mode of action, it is only effective on actively growing plants; it is not effective as a pre-emergence herbicide.",
+        "regularPrice": 620,
+        "salesPrice": 520,
+        "productImages" : [
+            {
+                "id": 0,
+                "name": "qwertyui",
+                "url": "https://cdn.storehippo.com/s/6204bf2ecd8cdec2b3b45115/63fee7f9c01fb64784ce3c9d/webp/towerpercent2071-640x640.jpg"
+            }
+        ],
+        "stockStatus" : "available",
+        "stockQuantity": 10,
+        "isFavorite": true,
+        "totalLikes": 200
+    },
+    {
+        "productTitles": "TEZZ PLUS",
+        "short_description": "Coming soon",
+       "description":"- Micronutrient Based Product - Zinc is an essential component of various enzyme systems. It is essential for energy production, protein synthesis and growth regulation.",
+        "regularPrice": 650,
+        "salesPrice": 520,
+        "productImages" : [
+            {
+                "id": 0,
+                "name": "qwertyui",
+                "url": "https://cdn.storehippo.com/s/6204bf2ecd8cdec2b3b45115/63fee7e3f7db144749333498/webp/sona-shree-gold-640x640.jpg"
+            }
+        ],
+        "stockStatus" : "available",
+        "stockQuantity": 0,
+        "isFavorite": true,
+        "totalLikes": 40
+    },
+    {
+        "productTitles": "Germipator",
+        "short_description": "To activate white tertiary roots",
+       "description":"-Early and enhanced germination. -Ideal for onion and potato crops. -Dipping seedlings in Germinator before transplating helps in the vigorous growth of seedlings. -Germinator helps in reducing the stress of water scarcity in seedlings, This can help in extending the irrigation gap. -Ideal for Bahor treatment/ratoon crop. -Ideal for seed Industries. -Germinator treatment for sugarcane before planting helps in vigorous growth. -In grapes, foliar application of Germinator after April and October pruning helps in vigorous growth of bud. Germinator is also helpful after flowering and can be used in dipping treatment as well as raisin preparation. “-Panchmrit” (Thriver+ Crop Shiner + Ripener + Protectant) if sprayed in combination helps in biomanagement of soil borne fungal diseases like wilt, collar rot etc. Even in cloudy / extreme dry conditions the leaves of various crops like Fenugreek, Coriander, Cabbage, Leafy Vegetables etc. do not wilt after application of “Panchmrit”. Beneficial for nursery, forest nursery, graft. -Thousands of farmers have been benefited by using their products Germinator which helps in enhanced germination and vigorous growth of seedlings. -For all types of vegetables, fruit crops, floriculture Agricultural (food & Staple crops) Agroforestry seeds & seed material for 100% Germination. -For Plantation of all types of grafts & saplings. -Wilt & root rot Preventive (for soil & seed-borne diseases) Very Powerful for taking ratoons of many vegetables, fruits & floriculture. -Very effective for seed production of all types of crops. -In the case of leguminous crops profuse N fixation on root nodules by way of the symbiotic process.",
+        "regularPrice": 590,
+        "salesPrice": 420,
+        "productImages" : [
+            {
+                "id": 0,
+                "name": "qwertyui",
+                "url": "https://cdn.storehippo.com/s/6204bf2ecd8cdec2b3b45115/63e61d87e89f3ac4ced68391/webp/agro-germinator-plant-growth-regulator-1024x1024.webp"
+            }
+        ],
+        "stockStatus" : "available",
+        "stockQuantity": 10,
+        "isFavorite": false,
+        "totalLikes": 20
+    }
+]
+
