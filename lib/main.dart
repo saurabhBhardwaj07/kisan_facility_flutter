@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kisan_facility/screens/spalsh_screen.dart';
 import 'package:kisan_facility/service/notification/awesome_notification_service.dart';
+import 'package:kisan_facility/utils/app_colors.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -14,24 +18,29 @@ Future<void> backgroundHandler(RemoteMessage message) async {
 }
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.white, statusBarIconBrightness: Brightness.dark));
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark));
 
-  //--------- fireBase Binding------
-  await Firebase.initializeApp();
+    //--------- fireBase Binding------
+    await Firebase.initializeApp();
 
-  // --- awesome notification ----------
-  await AwesomeNotificationService.initializedNotification();
+    // --- awesome notification ----------
+    await AwesomeNotificationService.initializedNotification();
 
-  //--- background messaging
-  FirebaseMessaging.onBackgroundMessage(backgroundHandler);
+    //--- background messaging
+    FirebaseMessaging.onBackgroundMessage(backgroundHandler);
 
-  // LocalNotificationService.initialize();
-  runApp(const ProviderScope(child: MyApp()));
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
+    // LocalNotificationService.initialize();
+    runApp(const ProviderScope(child: MyApp()));
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+  }, (error, stack) {
+    print(error);
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -51,6 +60,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
             primaryColor: const Color(0xFF6F35A5),
+            dialogBackgroundColor: AppColors.accentColor,
             scaffoldBackgroundColor: Colors.white,
             textTheme: GoogleFonts.soraTextTheme(Theme.of(context).textTheme),
           ),

@@ -7,8 +7,14 @@ import 'package:kisan_facility/components/dashboard_header.dart';
 import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/components/option_heading_with_view_all.dart';
 import 'package:kisan_facility/components/product_single_item.dart';
+import 'package:kisan_facility/screens/dashborad/crop_practise/crop_parctise_screen.dart';
+import 'package:kisan_facility/screens/dashborad/govt_scheme/govt_scheme.dart';
+import 'package:kisan_facility/screens/dashborad/news/news_list_screen.dart';
+import 'package:kisan_facility/screens/dashborad/videos/videos_screen.dart';
+import 'package:kisan_facility/screens/dashborad/weather/weather_screen.dart';
 import 'package:kisan_facility/utils/app_colors.dart';
-import 'package:kisan_facility/view_model/product_list_provider.dart';
+import 'package:kisan_facility/state_provider/product_list_provider.dart';
+import 'package:kisan_facility/utils/navigation_shortcut.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,12 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
   List<HomeCategories> homeCategories = [];
   PageController imageController = PageController();
 
-  List<Color> colors = [
-    AppColors.aquamarine,
-    AppColors.azure,
-    AppColors.beige,
-    AppColors.bisque
+  List<String> imagesAssets = [
+    "assets/images/poster1.jpg",
+    "assets/images/poster2.jpg",
+    "assets/images/poster3.jpg"
   ];
+
   int _currPageValue = 0;
 
   Timer? _timer;
@@ -72,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 200,
               child: PageView.builder(
-                  itemCount: colors.length,
+                  itemCount: imagesAssets.length,
                   physics: const BouncingScrollPhysics(),
                   controller: imageController,
                   scrollDirection: Axis.horizontal,
@@ -82,21 +88,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (context, position) {
                     return InkWell(
                         onTap: () {},
-                        child: Container(
-                          height: 150,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                              color: colors[position],
-                              borderRadius: BorderRadius.circular(12)),
-                          child: const Center(
-                            child: Text(" Highlighted Poster"),
-                          ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Container(
+                              height: 150.h,
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Image.asset(
+                                imagesAssets[position],
+                                fit: BoxFit.cover,
+                              )),
                         ));
                   }),
             ),
             const SizedBox(
               height: 20,
             ),
+            // Image.network(
+            //     "https://kisan-facility.mmssatta.in/api/media/news/645e8c7cd212a.jpg"),
             GridView.builder(
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -108,27 +117,49 @@ class _HomeScreenState extends State<HomeScreen> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (BuildContext ctx, index) {
                   var element = homeCategories[index];
-                  return Card(
-                    shadowColor: AppColors.kPrimaryLightColor,
-                    elevation: 5,
-                    shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.white)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            element.assetsPath,
-                            height: 30,
-                            width: 30,
-                          ),
-                          const Spacer(),
-                          Text(
-                            element.text,
-                            style: const TextStyle(fontSize: 10),
-                          )
-                        ],
+                  return InkWell(
+                    onTap: () {
+                      if (element.id == 5) {
+                        AppNavigation.goScreen(context, const NewsListScreen());
+                      }
+                      if (element.id == 6) {
+                        AppNavigation.goScreen(
+                            context, const VideosListScreen());
+                      }
+                      if (element.id == 2) {
+                        AppNavigation.goScreen(
+                            context, const CropPracticeScreen());
+                      }
+                      if (element.id == 3) {
+                        AppNavigation.goScreen(
+                            context, const GovtSchemeScreen());
+                      }
+                      if (element.id == 4) {
+                        AppNavigation.goScreen(context, const WeatherScreen());
+                      }
+                    },
+                    child: Card(
+                      shadowColor: AppColors.kPrimaryLightColor,
+                      elevation: 5,
+                      shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: Colors.white)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              element.assetsPath,
+                              height: 30,
+                              width: 30,
+                            ),
+                            const Spacer(),
+                            Text(
+                              element.text,
+                              style: const TextStyle(fontSize: 10),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   );

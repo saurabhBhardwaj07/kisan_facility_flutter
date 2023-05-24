@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kisan_facility/cache/storage_shared_pref.dart';
@@ -31,12 +33,13 @@ class OnBoardingController extends StateNotifier<bool> {
 
   void userCreate(BuildContext context,
       {required String firstname,
-      required String middlename,
+      String? middlename,
       required String lastname,
       required String email,
       required String phone,
       required String password,
       required String passConfirm,
+      File? file,
       required String gender,
       bool isUpdate = false}) async {
     state = true;
@@ -104,5 +107,11 @@ class OnBoardingController extends StateNotifier<bool> {
             child: const HomeScreen(),
           ));
     });
+  }
+
+  void userLogOut(BuildContext context) async {
+    state = true;
+    final user = await _onBoardingRepository.logout();
+    state = false;
   }
 }

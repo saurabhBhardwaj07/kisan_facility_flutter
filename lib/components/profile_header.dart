@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kisan_facility/screens/onboardiing/create_account.dart';
 import 'package:kisan_facility/state_provider/logged_user_stateprovider.dart';
 import 'package:kisan_facility/utils/app_colors.dart';
@@ -24,8 +25,8 @@ class ProfileHeader extends ConsumerWidget {
         // :
         Image.asset(
           "assets/images/user.png",
-          height: 90,
-          width: 90,
+          height: 90.h,
+          width: 90.w,
         ),
         const Spacer(),
         Column(
@@ -34,22 +35,22 @@ class ProfileHeader extends ConsumerWidget {
           children: [
             Text(
               loggedUser?.user?.name == null ? "N/A" : loggedUser!.user!.name!,
-              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15.sp),
             ),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: 5.h,
             ),
             Text(loggedUser?.user?.email == null
                 ? "N/A"
                 : loggedUser!.user!.email!),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: 5.h,
             ),
             Text(loggedUser?.user?.phone == null
                 ? "N/A"
                 : loggedUser!.user!.phone!),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: 5.h,
             ),
             InkWell(
               onTap: () => AppNavigation.goScreen(
@@ -58,13 +59,13 @@ class ProfileHeader extends ConsumerWidget {
                     onBoarding: false,
                   )),
               child: Container(
-                height: 20,
-                width: 80,
-                padding: EdgeInsets.only(left: 10),
+                height: 20.h,
+                width: 80.w,
+                padding: EdgeInsets.only(left: 10.w),
                 decoration: BoxDecoration(
                     color: AppColors.aqua,
-                    borderRadius: BorderRadius.circular(20)),
-                child: Center(child: const Text("Update Profile")),
+                    borderRadius: BorderRadius.circular(20.h)),
+                child: const Center(child: Text("Update Profile")),
               ),
             )
           ],

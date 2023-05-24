@@ -8,6 +8,8 @@ class CustomTextronField extends StatelessWidget {
   final String hintText;
   final Widget? prefix;
   final bool readOnly;
+  final bool hideValidator;
+  final int maxline;
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
   final void Function()? onTap;
@@ -19,6 +21,8 @@ class CustomTextronField extends StatelessWidget {
       this.hintText = "type here",
       this.inputFormatters,
       this.readOnly = false,
+      this.maxline = 1,
+      this.hideValidator = false,
       this.onTap,
       this.keyboardType})
       : super(key: key);
@@ -36,6 +40,8 @@ class CustomTextronField extends StatelessWidget {
       ]),
       child: TextFormField(
         controller: inputController,
+        maxLines: maxline,
+        minLines: maxline == 1 ? 1 : maxline - 1,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         onChanged: (value) {
           //Do something wi
@@ -44,12 +50,14 @@ class CustomTextronField extends StatelessWidget {
         style: const TextStyle(fontSize: 14, color: Colors.black),
         inputFormatters: inputFormatters,
         readOnly: readOnly,
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return "Field is required";
-          }
-          return null;
-        },
+        validator: hideValidator == true
+            ? null
+            : (value) {
+                if (value == null || value.isEmpty) {
+                  return "Field is required";
+                }
+                return null;
+              },
         onTap: onTap,
         decoration: InputDecoration(
           label: Text(labelText),

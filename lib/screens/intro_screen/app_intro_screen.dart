@@ -30,6 +30,7 @@ class _AppIntroScreenState extends State<AppIntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Layout(
+      showAsset: false,
       child: Stack(
         children: [
           PageView(

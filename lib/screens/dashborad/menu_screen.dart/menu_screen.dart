@@ -1,8 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:kisan_facility/cache/storage_shared_pref.dart';
 
 import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/components/profile_header.dart';
+import 'package:kisan_facility/screens/dashborad/address/add_address_screen.dart';
+import 'package:kisan_facility/screens/dashborad/address/address_screen.dart';
+import 'package:kisan_facility/screens/dashborad/menu_screen.dart/contact_us.dart';
+import 'package:kisan_facility/screens/onboardiing/login_screen.dart';
+import 'package:kisan_facility/service/notification/awesome_notification_service.dart';
+import 'package:kisan_facility/utils/navigation_shortcut.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -35,7 +43,7 @@ class _MenuScreenState extends State<MenuScreen> {
     menuOption.add(ProfileMenuOption(
         id: 6, assetsPath: "assets/images/rating.png", text: "Rate App"));
     menuOption.add(ProfileMenuOption(
-        id: 6, assetsPath: "assets/images/logout.png", text: "Logout"));
+        id: 7, assetsPath: "assets/images/logout.png", text: "Logout"));
   }
 
   @override
@@ -72,20 +80,48 @@ class _MenuScreenState extends State<MenuScreen> {
               child: ListView.separated(
                   itemBuilder: (context, index) {
                     var element = menuOption[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            element.assetsPath,
-                            height: 25,
-                            width: 25,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(element.text)
-                        ],
+                    return InkWell(
+                      onTap: () {
+                        if (element.id == 7) {
+                          GoogleSignIn googleSignIn = GoogleSignIn();
+                          googleSignIn.signOut();
+                          StorageHelper.remove(StorageKeys.userData);
+                          StorageHelper.remove(StorageKeys.token);
+                          AppNavigation.removeAllScreen(
+                              context, AppLoginScreen());
+                        }
+
+                        if (element.id == 2) {
+                          AppNavigation.goScreen(context, AddressScreen());
+                        }
+
+                        if (element.id == 4) {
+                          AppNavigation.goScreen(context, ContactUsScreen());
+                        }
+
+                        if (element.id == 1) {
+                          createAppNotification(
+                            title: "Kisan Facility",
+                            body:
+                                "Your Enquiry has submitted, we will connect with you soon",
+                          );
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              element.assetsPath,
+                              height: 25,
+                              width: 25,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(element.text)
+                          ],
+                        ),
                       ),
                     );
                   },

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,11 +15,11 @@ class ProductSingleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(8),
+        padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
             color: AppColors.aliceBlue,
             border: Border.all(
-                color: const Color.fromARGB(255, 219, 232, 243), width: 2.0),
+                color: const Color.fromARGB(255, 219, 232, 243), width: 2.0.w),
             borderRadius: BorderRadius.circular(10)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,8 +46,8 @@ class ProductSingleItem extends StatelessWidget {
                         color:
                             element.isFavorite == true ? AppColors.red : null,
                       ),
-                      const SizedBox(
-                        height: 5,
+                      SizedBox(
+                        height: 5.h,
                       ),
                       AppText.small("${element.totalLikes}")
                     ],
@@ -54,15 +55,20 @@ class ProductSingleItem extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: 5.h,
             ),
-            AppText.medium(
+            AutoSizeText(
               element.productTitles!,
-              fontSize: 14,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+              maxLines: 1,
+              minFontSize: 10,
             ),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: 5.h,
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -79,8 +85,8 @@ class ProductSingleItem extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 2,
+                    SizedBox(
+                      height: 2.h,
                     ),
                     Row(
                       children: [
@@ -98,13 +104,13 @@ class ProductSingleItem extends StatelessWidget {
                 const Spacer(),
                 Image.asset(
                   "assets/images/save-instagram.png",
-                  height: 25,
-                  width: 25,
+                  height: 25.h,
+                  width: 25.w,
                 )
               ],
             ),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: 5.h,
             ),
             AppText.large(
               "You saving \u{20B9} ${element.regularPrice! - element.salesPrice!} on this.",

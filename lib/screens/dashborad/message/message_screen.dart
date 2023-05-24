@@ -63,6 +63,7 @@ class _MessageScreenState extends ConsumerState<MessageScreen> {
                   Expanded(
                     child: CustomTextronField(
                       inputController: _controller,
+                      hideValidator: true,
                       labelText: "Q/A",
                       hintText: "Type Here Your Query",
                     ),

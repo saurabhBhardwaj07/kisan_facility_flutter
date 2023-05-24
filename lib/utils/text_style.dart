@@ -11,6 +11,7 @@ class AppText extends Text {
   final double? height;
   final double fontSize;
   final double? letterSpacing;
+  final int? maxLine;
   final TextDecoration? textDecoration;
   @override
   final TextAlign? textAlign;
@@ -25,6 +26,7 @@ class AppText extends Text {
       this.fontSize = 24,
       this.letterSpacing,
       this.textAlign,
+      this.maxLine,
       this.textDirection,
       this.textDecoration})
       : super(
@@ -36,6 +38,7 @@ class AppText extends Text {
               letterSpacing: letterSpacing,
               fontWeight: fontWeight,
               decoration: textDecoration),
+          maxLines: maxLine,
           textAlign: textAlign,
           textDirection: textDirection,
         );
@@ -46,6 +49,7 @@ class AppText extends Text {
       this.fontWeight = FontWeight.w500,
       this.height,
       this.fontSize = 18,
+      this.maxLine,
       this.letterSpacing,
       this.textAlign,
       this.textDirection,
@@ -58,6 +62,7 @@ class AppText extends Text {
                 letterSpacing: letterSpacing,
                 fontWeight: fontWeight,
                 decoration: textDecoration),
+            maxLines: maxLine,
             textDirection: textDirection);
 
   AppText.small(String data,
@@ -67,6 +72,7 @@ class AppText extends Text {
       this.height,
       this.fontSize = 12,
       this.letterSpacing,
+      this.maxLine,
       this.textAlign,
       this.textDirection,
       this.textDecoration})
@@ -78,5 +84,6 @@ class AppText extends Text {
                 letterSpacing: letterSpacing,
                 fontWeight: fontWeight,
                 decoration: textDecoration),
+            maxLines: maxLine,
             textDirection: textDirection);
 }

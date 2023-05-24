@@ -1,14 +1,16 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kisan_facility/screens/dashborad/home/home_screen.dart';
 import 'package:kisan_facility/screens/dashborad/message/message_screen.dart';
 import 'package:kisan_facility/screens/dashborad/settings/setting_screen.dart';
 import 'package:kisan_facility/screens/dashborad/shop/shop_screen.dart';
 import 'package:kisan_facility/service/notification/handle_show_notification.dart';
+import 'package:kisan_facility/state_provider/user_location_provider.dart';
 import 'package:kisan_facility/utils/app_colors.dart';
 
-class DashBoardScreen extends StatefulWidget {
+class DashBoardScreen extends ConsumerStatefulWidget {
   Widget child;
   int bottomNavIndex;
 
@@ -16,10 +18,10 @@ class DashBoardScreen extends StatefulWidget {
       {super.key, this.child = const HomeScreen(), this.bottomNavIndex = -1});
 
   @override
-  State<DashBoardScreen> createState() => _DashBoardScreenState();
+  _DashBoardScreenState createState() => _DashBoardScreenState();
 }
 
-class _DashBoardScreenState extends State<DashBoardScreen> {
+class _DashBoardScreenState extends ConsumerState<DashBoardScreen> {
   List<IconData> iconList = [
     Icons.check,
     Icons.shopping_cart,
@@ -31,6 +33,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
   void initState() {
     ShowNotification().listenFCM();
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    ref.read(userLocationProvider.notifier).fetchUserLocation(context);
+    super.didChangeDependencies();
   }
 
   @override

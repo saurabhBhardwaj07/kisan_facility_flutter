@@ -9,6 +9,5 @@ final productListProvider =
   var res = await rootBundle.loadString("lib/json/product_list.json");
   var data = await json.decode(res) as List;
   productList.addAll(data.map((e) => ProductListResponse.fromJson(e)));
-
   return productList;
 });

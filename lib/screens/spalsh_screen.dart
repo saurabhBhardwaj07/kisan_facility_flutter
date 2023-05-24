@@ -15,7 +15,7 @@ import 'package:kisan_facility/screens/onboardiing/login_screen.dart';
 import 'package:kisan_facility/state_provider/logged_user_stateprovider.dart';
 import 'package:kisan_facility/utils/clipper/wave_clipper.dart';
 import 'package:kisan_facility/utils/navigation_shortcut.dart';
-import 'package:kisan_facility/view_model/user_model.dart';
+import 'package:kisan_facility/model/user_model.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {

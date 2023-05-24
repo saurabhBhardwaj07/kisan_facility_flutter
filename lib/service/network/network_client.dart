@@ -46,8 +46,8 @@ class NetworkClient {
         responseType: ResponseType.json, baseUrl: _client.options.baseUrl);
   }
 
-  Future<Response> post(String url, {dynamic body}) =>
-      _client.post(url, data: body);
+  Future<Response> post(String url, {dynamic body, dynamic queryParameters}) =>
+      _client.post(url, data: body, queryParameters: queryParameters);
 
   Future<Response> get(String url, {dynamic query}) =>
       _client.get(url, queryParameters: query);

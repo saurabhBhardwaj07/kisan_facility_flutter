@@ -21,7 +21,7 @@ Future<void> createAppNotification(
           channelKey: "basic_channel",
           title: title,
           body: body,
-          bigPicture: "assets://assets/images/signup_top.png",
+          bigPicture: bigPicture,
           payload: payload,
           category: category,
           summary: summary,
@@ -56,22 +56,8 @@ class AwesomeNotificationService {
               channelDescription: 'Notification channel for basic tests',
               defaultColor: const Color(0xFF9D50DD),
               ledColor: Colors.white),
-          NotificationChannel(
-              channelGroupKey: 'scheduled_channel_group',
-              channelKey: 'scheduled_channel',
-              channelName: 'Scheduled notifications',
-              importance: NotificationImportance.High,
-              channelShowBadge: true,
-              channelDescription: 'Notification channel for scheduled tests',
-              defaultColor: const Color.fromARGB(255, 47, 207, 65),
-              ledColor: const Color.fromARGB(255, 233, 165, 165)),
         ],
         // Channel groups are only visual and are not required
-        channelGroups: [
-          NotificationChannelGroup(
-              channelGroupKey: 'basic_channel_group',
-              channelGroupName: 'Basic group')
-        ],
         debug: true);
 
     await AwesomeNotifications()

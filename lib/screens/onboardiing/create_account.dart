@@ -1,16 +1,19 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kisan_facility/components/app_logo_widget.dart';
 import 'package:kisan_facility/components/custom_rounded_button.dart';
 import 'package:kisan_facility/components/custom_textfrom_field.dart';
 import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/components/login_signup_bottom_text.dart';
 import 'package:kisan_facility/components/top_widget.dart';
+import 'package:kisan_facility/mixins/image_picker.dart';
 import 'package:kisan_facility/mixins/selectable_sheet_mixin.dart';
-import 'package:kisan_facility/screens/dashborad/dashborad.dart';
-import 'package:kisan_facility/screens/dashborad/home/home_screen.dart';
 import 'package:kisan_facility/screens/onboardiing/controller/onboarding_controller.dart';
 import 'package:kisan_facility/screens/onboardiing/login_screen.dart';
 import 'package:kisan_facility/state_provider/logged_user_stateprovider.dart';
@@ -26,7 +29,10 @@ class CreateAccountScreen extends ConsumerStatefulWidget {
   _CreateAccountScreenState createState() => _CreateAccountScreenState();
 }
 
-class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
+class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen>
+    with ImagePickerMixin {
+  final ImagePicker _picker = ImagePicker();
+  File? selectedFile;
   final TextEditingController firstNameCtr = TextEditingController();
   final TextEditingController lastNameCtr = TextEditingController();
   final TextEditingController genderCtr = TextEditingController();
@@ -45,7 +51,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
       final user = ref.watch(userProvider);
       firstNameCtr.text = user?.user?.firstName ?? "";
       lastNameCtr.text = user?.user?.lastName ?? "";
-      genderCtr.text = user?.user?.gender ?? "";
+      genderCtr.text = user?.user?.middleName ?? "";
       emailCtrl.text = user?.user?.email ?? "";
       phoneCtrl.text = user?.user?.phone ?? "";
     }
@@ -63,16 +69,25 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
       }
       newPhoneValue += phoneCtrl.text[i];
     }
+
     ref.read(onBoardingControllerProvider.notifier).userCreate(context,
         firstname: firstNameCtr.text,
-        middlename: "",
+        middlename: genderCtr.text,
         lastname: lastNameCtr.text,
         email: emailCtrl.text,
         phone: newPhoneValue,
         password: passwordCtrl.text,
         passConfirm: passwordCtrl.text,
         gender: genderCtr.text,
+        file: selectedFile,
         isUpdate: !widget.onBoarding);
+  }
+
+  void loginBySignUp(
+    WidgetRef ref,
+    BuildContext context,
+  ) {
+    ref.read(onBoardingControllerProvider.notifier).googleLogin(context);
   }
 
   @override
@@ -96,18 +111,38 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                             onTap: () => Navigator.pop(context),
                             child: const Icon(Icons.arrow_back_ios))),
                   )
-                : const AppLogoWidget(
-                    height: 200,
-                  ),
+                : SizedBox(),
 
             SizedBox(
               height: 20.h,
             ),
-
-            Image.asset(
-              "assets/images/user.png",
-              height: 90,
-              width: 90,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 100.0),
+              child: SizedBox(
+                height: 100,
+                child: InkWell(
+                  onTap: () =>
+                      showImagePickerOptions(context, _picker, (File file) {
+                    Navigator.pop(context);
+                    if (mounted) {
+                      setState(() {
+                        selectedFile = file;
+                      });
+                    }
+                  }),
+                  child: selectedFile != null
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(150),
+                          child: Image.file(
+                            selectedFile!,
+                            // fit: BoxFit.fill,
+                          ),
+                        )
+                      : Image.asset(
+                          "assets/images/user.png",
+                        ),
+                ),
+              ),
             ),
             SizedBox(
               height: 20.h,
@@ -123,7 +158,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
             //       )),
             // ),
             !widget.onBoarding
-                ? SizedBox()
+                ? const SizedBox()
                 : const Align(
                     alignment: AlignmentDirectional.centerStart,
                     child: Text(
@@ -135,36 +170,35 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
             SizedBox(
               height: 20.h,
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: CustomTextronField(
-                    inputController: firstNameCtr,
-                    labelText: "First Name",
-                  ),
-                ),
-                SizedBox(
-                  width: 10.w,
-                ),
-                Expanded(
-                  child: CustomTextronField(
-                    inputController: lastNameCtr,
-                    labelText: "Last Name",
-                  ),
-                ),
-              ],
+            CustomTextronField(
+              inputController: firstNameCtr,
+              labelText: "First Name",
             ),
             SizedBox(
-              height: 20.h,
+              height: 10.h,
             ),
             CustomTextronField(
               inputController: genderCtr,
-              labelText: "Gender",
-              readOnly: true,
-              onTap: () => SelectableSheetMixin.showTypeForSelect((type) {
-                genderCtr.text = type;
-              }, context, genderList),
+              labelText: "Middle Name",
             ),
+            SizedBox(
+              height: 10.h,
+            ),
+            CustomTextronField(
+              inputController: lastNameCtr,
+              labelText: "Last Name",
+            ),
+            // SizedBox(
+            //   height: 20.h,
+            // ),
+            // CustomTextronField(
+            //   inputController: genderCtr,
+            //   labelText: "Gender",
+            //   readOnly: true,
+            //   onTap: () => SelectableSheetMixin.showTypeForSelect((type) {
+            //     genderCtr.text = type;
+            //   }, context, genderList),
+            // ),
             // SizedBox(
             //   height: 20.h,
             // ),
@@ -228,7 +262,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                       createAccount(context, ref);
                     }),
                 !widget.onBoarding
-                    ? SizedBox()
+                    ? const SizedBox()
                     : Padding(
                         padding: EdgeInsets.symmetric(vertical: 15.0.h),
                         child: const Text(
@@ -238,23 +272,28 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                         ),
                       ),
                 !widget.onBoarding
-                    ? SizedBox()
-                    : Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Login With",
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Image.asset(
-                            'assets/images/google.png',
-                            height: 40,
-                            width: 40,
-                          ),
-                        ],
+                    ? const SizedBox()
+                    : InkWell(
+                        onTap: () {
+                          loginBySignUp(ref, context);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Login With",
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Image.asset(
+                              'assets/images/google.png',
+                              height: 40,
+                              width: 40,
+                            ),
+                          ],
+                        ),
                       )
               ],
             ),
@@ -262,7 +301,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
               height: 30.h,
             ),
             !widget.onBoarding
-                ? SizedBox()
+                ? const SizedBox()
                 : LoginSignupBottomText(
                     login: false,
                     press: () =>

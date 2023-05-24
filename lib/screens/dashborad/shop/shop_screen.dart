@@ -6,7 +6,7 @@ import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/components/option_heading_with_view_all.dart';
 import 'package:kisan_facility/components/product_single_item.dart';
 import 'package:kisan_facility/utils/app_colors.dart';
-import 'package:kisan_facility/view_model/product_list_provider.dart';
+import 'package:kisan_facility/state_provider/product_list_provider.dart';
 
 class ShoppingScreen extends StatelessWidget {
   const ShoppingScreen({super.key});
@@ -44,8 +44,8 @@ class ShoppingScreen extends StatelessWidget {
             const OptionHeadingWithViewAll(
               heading: "Categories",
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: 20.h,
             ),
             SizedBox(
               height: 100.h,
@@ -55,7 +55,7 @@ class ShoppingScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(right: index == 0 ? 0 : 20.0),
+                      padding: EdgeInsets.only(right: index == 0 ? 0 : 20.0.w),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -64,10 +64,10 @@ class ShoppingScreen extends StatelessWidget {
                             width: 65.w,
                             decoration: BoxDecoration(
                                 color: categoriesColor[index],
-                                borderRadius: BorderRadius.circular(50)),
+                                borderRadius: BorderRadius.circular(50.r)),
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 10.h,
                           ),
                           Text(categories[index])
                         ],
@@ -75,14 +75,14 @@ class ShoppingScreen extends StatelessWidget {
                     );
                   }),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: 20.h,
             ),
             const OptionHeadingWithViewAll(
               heading: "Top Selling Products",
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             Consumer(builder: (context, ref, widget) {
               final product = ref.watch(productListProvider);
@@ -108,21 +108,21 @@ class ShoppingScreen extends StatelessWidget {
                   error: (err, stackTrace) {
                     return Text("error: $err");
                   },
-                  loading: () => const SizedBox(
-                      height: 40,
-                      width: 50,
-                      child: CircularProgressIndicator(
+                  loading: () => SizedBox(
+                      height: 40.h,
+                      width: 50.w,
+                      child: const CircularProgressIndicator(
                         color: AppColors.chartreuse,
                       )));
             }),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: 20.h,
             ),
             const OptionHeadingWithViewAll(
               heading: "Recommended Products",
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             Consumer(builder: (context, ref, widget) {
               final product = ref.watch(productListProvider);
@@ -136,7 +136,7 @@ class ShoppingScreen extends StatelessWidget {
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 8,
-                            mainAxisExtent: 220.h,
+                            mainAxisExtent: 235.h,
                             mainAxisSpacing: 8),
                         itemBuilder: (context, index) {
                           var element = value[index];
@@ -146,10 +146,10 @@ class ShoppingScreen extends StatelessWidget {
                   error: (err, stackTrace) {
                     return Text("error: $err");
                   },
-                  loading: () => const SizedBox(
-                      height: 40,
-                      width: 50,
-                      child: CircularProgressIndicator(
+                  loading: () => SizedBox(
+                      height: 40.h,
+                      width: 50.w,
+                      child: const CircularProgressIndicator(
                         color: AppColors.chartreuse,
                       )));
             })

@@ -1,5 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,7 +13,7 @@ import 'package:kisan_facility/core/constants/api_constant.dart';
 import 'package:kisan_facility/core/failure.dart';
 import 'package:kisan_facility/core/type_def/either_type_def.dart';
 import 'package:kisan_facility/service/network/network_client.dart';
-import 'package:kisan_facility/view_model/user_model.dart';
+import 'package:kisan_facility/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 
 final FirebaseAuth auth = FirebaseAuth.instance;
@@ -48,20 +51,35 @@ class OnBoardingRepository {
       String? password,
       String? passConfirm,
       String? gender,
+      File? profile,
       bool isUpdate = false}) async {
     try {
+      FormData data = FormData.fromMap({
+        "first_name": firstname,
+        "middle_name": middlename,
+        "last_name": lastname,
+        "email": email,
+        "phone": phone,
+        "password": password,
+        "password_confirmation": passConfirm,
+        "gender": gender,
+      });
+
+      if (profile != null) {
+        String filename = profile.path.split("/").last;
+        MapEntry<String, MultipartFile> profileImage = MapEntry(
+          'file',
+          await MultipartFile.fromFile(profile.path, filename: filename),
+        );
+
+        data.files.add(profileImage);
+      }
+
       final resp = await _networkClient.post(
           apiBaseUrl + (isUpdate == true ? updateUserPoint : signUpPoint),
-          body: {
-            "first_name": firstname,
-            "middle_name": middlename,
-            "last_name": lastname,
-            "email": email,
-            "phone": phone,
-            "password": password,
-            "password_confirmation": passConfirm,
-            "gender": gender,
-          });
+          body: data);
+      print(data.files.map((e) => e));
+      print(data.fields.map((e) => e));
 
       var user = UserModel.fromJson(resp.data);
       return right(user);
@@ -99,6 +117,18 @@ class OnBoardingRepository {
       }
 
       return right(null);
+    } catch (err) {
+      return left(Failure(err.toString()));
+    }
+  }
+
+  FutureEither<Response> logout() async {
+    try {
+      final resp = await _networkClient.post(apiBaseUrl + logoutEndPoint);
+      return left(resp.data);
+    } on DioError catch (err) {
+      print(err.response?.data);
+      return left(Failure(err.response?.data["message"]));
     } catch (err) {
       return left(Failure(err.toString()));
     }

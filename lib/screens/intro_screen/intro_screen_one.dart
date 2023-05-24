@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IntroScreenOne extends StatelessWidget {
   const IntroScreenOne({super.key});
@@ -7,19 +8,22 @@ class IntroScreenOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: const [
-          Spacer(),
-          Text("Title 1"),
+        children: [
           SizedBox(
-            height: 20,
+            height: 50.h,
+          ),
+          ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset("assets/images/8104759.jpg")),
+          SizedBox(
+            height: 20.h,
           ),
           Text(
-              "Here You can put some text to hightlight your app motive and feature to user these screen only come when user visit your app first time"),
-          SizedBox(
-            height: 20,
+            "As a farmer, one of the most important aspects of your business is having access to the right products at the right time. That's why we've created a farmer app that makes it easy to browse and purchase the agricultural products you need. Whether you're looking for seeds, fertilizers, or tools, our app has everything you need to grow healthy, profitable crops.",
+            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w700),
+            textAlign: TextAlign.center,
           ),
-          Text("Here You also put some images for better deatiling"),
-          Spacer()
+          const Spacer()
         ],
       ),
     );

@@ -23,10 +23,10 @@ class DashboardHeader extends StatelessWidget {
         centerText: centerText,
         trailing: Row(
           children: const [
-            Icon(
-              Icons.search,
-              size: 30,
-            ),
+            // Icon(
+            //   Icons.search,
+            //   size: 30,
+            // ),
             SizedBox(
               width: 5,
             ),
