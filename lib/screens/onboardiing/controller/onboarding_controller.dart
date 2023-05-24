@@ -110,8 +110,10 @@ class OnBoardingController extends StateNotifier<bool> {
   }
 
   void userLogOut(BuildContext context) async {
-    state = true;
     final user = await _onBoardingRepository.logout();
-    state = false;
+    user.fold((l) => showSnackBar(context, l.message), (r) {
+      StorageHelper.remove(StorageKeys.userData);
+      StorageHelper.remove(StorageKeys.token);
+    });
   }
 }

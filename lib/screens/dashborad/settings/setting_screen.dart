@@ -82,14 +82,12 @@ class _SettingScreenState extends State<SettingScreen> {
             Consumer(
               builder: (context, ref, child) {
                 return InkWell(
-                  onTap: () {
+                  onTap: () async {
                     ref
-                        .read(onBoardingControllerProvider.notifier)
+                        .watch(onBoardingControllerProvider.notifier)
                         .userLogOut(context);
                     GoogleSignIn googleSignIn = GoogleSignIn();
                     googleSignIn.signOut();
-                    StorageHelper.remove(StorageKeys.userData);
-                    StorageHelper.remove(StorageKeys.token);
                     AppNavigation.removeAllScreen(context, AppLoginScreen());
                   },
                   child: Row(

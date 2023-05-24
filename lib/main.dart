@@ -28,7 +28,7 @@ void main() async {
     await Firebase.initializeApp();
 
     // --- awesome notification ----------
-    await AwesomeNotificationService.initializedNotification();
+    // await AwesomeNotificationService.initializedNotification();
 
     //--- background messaging
     FirebaseMessaging.onBackgroundMessage(backgroundHandler);
