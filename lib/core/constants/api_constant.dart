@@ -10,3 +10,7 @@ const String cropPracticeEndPoint = "api/user/crop-categories";
 const String govtSchemeEndPoint = "api/user/government-schemes";
 const String userAddress = "api/user/user-address";
 const String contactUs = "api/user/enquiries";
+const String productListEndPoint = "api/user/products";
+const String productCategoryEndPoint = "api/user/product-categories";
+const String addToCartEndPoint = "api/user/user-products";
+const String placeOrderEndPoint = "api/user/orders";

@@ -1,3 +1,5 @@
+import 'package:kisan_facility/model/image_response.dart';
+
 class UserModel {
   String? message;
   User? user;
@@ -43,6 +45,7 @@ class User {
   String? createdAt;
   String? updatedAt;
   String? name;
+  ImageUrl? image;
 
   User.fromJson(Map<String, dynamic> json) {
     if (json["id"] is String) {
@@ -86,6 +89,9 @@ class User {
     if (json["name"] is String) {
       name = json["name"];
     }
+    if (json["image"] is Map) {
+      image = json["image"] == null ? null : ImageUrl.fromJson(json["image"]);
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -104,6 +110,9 @@ class User {
     data["created_at"] = createdAt;
     data["updated_at"] = updatedAt;
     data["name"] = name;
+    if (image != null) {
+      data["image"] = image?.toJson();
+    }
     return data;
   }
 }

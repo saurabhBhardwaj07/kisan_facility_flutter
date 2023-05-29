@@ -143,7 +143,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                 SizedBox(
                   width: 20.w,
                 ),
-                Text("Set As Default")
+                const Text("Set As Default")
               ],
             ),
             SizedBox(

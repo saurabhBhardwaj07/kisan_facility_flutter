@@ -8,7 +8,6 @@ import 'package:kisan_facility/components/top_widget.dart';
 import 'package:kisan_facility/model/news_list_response.dart';
 import 'package:kisan_facility/screens/dashborad/news/controller/news_controller.dart';
 import 'package:kisan_facility/screens/dashborad/news/news_deatil_screen.dart';
-import 'package:kisan_facility/utils/app_colors.dart';
 import 'package:kisan_facility/utils/navigation_shortcut.dart';
 
 class NewsListScreen extends StatefulWidget {

@@ -1,13 +1,10 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:kisan_facility/cache/storage_shared_pref.dart';
 import 'package:kisan_facility/components/dashboard_header.dart';
 import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/components/profile_header.dart';
-import 'package:kisan_facility/core/constants/api_constant.dart';
 import 'package:kisan_facility/screens/onboardiing/controller/onboarding_controller.dart';
 import 'package:kisan_facility/screens/onboardiing/login_screen.dart';
 import 'package:kisan_facility/service/network/network_client.dart';
@@ -60,24 +57,24 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
               ],
             ),
-            divider(),
-            InkWell(
-              onTap: () {},
-              child: Text(
-                "Rate App",
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
-              ),
-            ),
-            divider(),
-            Text(
-              "Privacy Policy",
-              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
-            ),
-            divider(),
-            Text(
-              "Refund Policy",
-              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
-            ),
+            // divider(),
+            // InkWell(
+            //   onTap: () {},
+            //   child: Text(
+            //     "Rate App",
+            //     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
+            //   ),
+            // ),
+            // divider(),
+            // Text(
+            //   "Privacy Policy",
+            //   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
+            // ),
+            // divider(),
+            // Text(
+            //   "Refund Policy",
+            //   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp),
+            // ),
             divider(),
             Consumer(
               builder: (context, ref, child) {

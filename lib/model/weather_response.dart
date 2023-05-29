@@ -11,9 +11,7 @@ class WeatherResponse {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
-    if (data != null) {
-      _data["data"] = data?.toJson();
-    }
+    _data["data"] = data?.toJson();
     return _data;
   }
 }
@@ -30,10 +28,10 @@ class WeatherData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["weather"] = weather.map((e) => e.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["weather"] = weather.map((e) => e.toJson()).toList();
 
-    return _data;
+    return data;
   }
 }
 
@@ -95,22 +93,22 @@ class SingleDayWeather {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["date"] = date;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["date"] = date;
     if (astronomy != null) {
-      _data["astronomy"] = astronomy?.map((e) => e.toJson()).toList();
+      data["astronomy"] = astronomy?.map((e) => e.toJson()).toList();
     }
-    _data["maxtempC"] = maxtempC;
-    _data["maxtempF"] = maxtempF;
-    _data["mintempC"] = mintempC;
-    _data["mintempF"] = mintempF;
-    _data["avgtempC"] = avgtempC;
-    _data["avgtempF"] = avgtempF;
-    _data["totalSnow_cm"] = totalSnowCm;
-    _data["sunHour"] = sunHour;
-    _data["uvIndex"] = uvIndex;
-    _data["hourly"] = hourly.map((e) => e.toJson()).toList();
-    return _data;
+    data["maxtempC"] = maxtempC;
+    data["maxtempF"] = maxtempF;
+    data["mintempC"] = mintempC;
+    data["mintempF"] = mintempF;
+    data["avgtempC"] = avgtempC;
+    data["avgtempF"] = avgtempF;
+    data["totalSnow_cm"] = totalSnowCm;
+    data["sunHour"] = sunHour;
+    data["uvIndex"] = uvIndex;
+    data["hourly"] = hourly.map((e) => e.toJson()).toList();
+    return data;
   }
 }
 
@@ -136,16 +134,16 @@ class Hourly {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
 
     if (weatherIconUrl != null) {
-      _data["weatherIconUrl"] = weatherIconUrl?.map((e) => e.toJson()).toList();
+      data["weatherIconUrl"] = weatherIconUrl?.map((e) => e.toJson()).toList();
     }
     if (weatherDesc != null) {
-      _data["weatherDesc"] = weatherDesc?.map((e) => e.toJson()).toList();
+      data["weatherDesc"] = weatherDesc?.map((e) => e.toJson()).toList();
     }
 
-    return _data;
+    return data;
   }
 }
 
@@ -161,9 +159,9 @@ class WeatherDesc1 {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["value"] = value;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["value"] = value;
+    return data;
   }
 }
 
@@ -179,9 +177,9 @@ class WeatherIconUrl1 {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["value"] = value;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["value"] = value;
+    return data;
   }
 }
 
@@ -223,13 +221,13 @@ class Astronomy {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["sunrise"] = sunrise;
-    _data["sunset"] = sunset;
-    _data["moonrise"] = moonrise;
-    _data["moonset"] = moonset;
-    _data["moon_phase"] = moonPhase;
-    _data["moon_illumination"] = moonIllumination;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["sunrise"] = sunrise;
+    data["sunset"] = sunset;
+    data["moonrise"] = moonrise;
+    data["moonset"] = moonset;
+    data["moon_phase"] = moonPhase;
+    data["moon_illumination"] = moonIllumination;
+    return data;
   }
 }

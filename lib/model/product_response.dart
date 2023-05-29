@@ -2,39 +2,36 @@ import 'package:kisan_facility/model/image_response.dart';
 
 class ProductResponse {
   String? message;
-  List<Data>? data;
+  List<SingleProduct> data = [];
 
-  ProductResponse({this.message, this.data});
+  ProductResponse({this.message, required this.data});
 
   ProductResponse.fromJson(Map<String, dynamic> json) {
     if (json["message"] is String) {
       message = json["message"];
     }
     if (json["data"] is List) {
-      data = json["data"] == null
-          ? null
-          : (json["data"] as List).map((e) => Data.fromJson(e)).toList();
+      data =
+          (json["data"] as List).map((e) => SingleProduct.fromJson(e)).toList();
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
     _data["message"] = message;
-    if (data != null) {
-      _data["data"] = data?.map((e) => e.toJson()).toList();
-    }
+    _data["data"] = data.map((e) => e.toJson()).toList();
     return _data;
   }
 }
 
-class Data {
+class SingleProduct {
   String? id;
   String? productCategoryId;
   String? name;
   int? quantity;
   String? size;
-  int? price;
-  int? discount;
+  num price = 0.00;
+  int discount = 0;
   String? description;
   String? composition;
   String? uses;
@@ -45,25 +42,7 @@ class Data {
   ImageUrl? image;
   ProductCategory? productCategory;
 
-  Data(
-      {this.id,
-      this.productCategoryId,
-      this.name,
-      this.quantity,
-      this.size,
-      this.price,
-      this.discount,
-      this.description,
-      this.composition,
-      this.uses,
-      this.status,
-      this.createdAt,
-      this.updatedAt,
-      this.discountedPrice,
-      this.image,
-      this.productCategory});
-
-  Data.fromJson(Map<String, dynamic> json) {
+  SingleProduct.fromJson(Map<String, dynamic> json) {
     if (json["id"] is String) {
       id = json["id"];
     }
@@ -79,7 +58,7 @@ class Data {
     if (json["size"] is String) {
       size = json["size"];
     }
-    if (json["price"] is int) {
+    if (json["price"] is num) {
       price = json["price"];
     }
     if (json["discount"] is int) {
@@ -117,28 +96,28 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["product_category_id"] = productCategoryId;
-    _data["name"] = name;
-    _data["quantity"] = quantity;
-    _data["size"] = size;
-    _data["price"] = price;
-    _data["discount"] = discount;
-    _data["description"] = description;
-    _data["composition"] = composition;
-    _data["uses"] = uses;
-    _data["status"] = status;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
-    _data["discounted_price"] = discountedPrice;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["product_category_id"] = productCategoryId;
+    data["name"] = name;
+    data["quantity"] = quantity;
+    data["size"] = size;
+    data["price"] = price;
+    data["discount"] = discount;
+    data["description"] = description;
+    data["composition"] = composition;
+    data["uses"] = uses;
+    data["status"] = status;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
+    data["discounted_price"] = discountedPrice;
     if (image != null) {
-      _data["image"] = image?.toJson();
+      data["image"] = image?.toJson();
     }
     if (productCategory != null) {
-      _data["product_category"] = productCategory?.toJson();
+      data["product_category"] = productCategory?.toJson();
     }
-    return _data;
+    return data;
   }
 }
 
@@ -168,12 +147,12 @@ class ProductCategory {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["name"] = name;
-    _data["status"] = status;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["name"] = name;
+    data["status"] = status;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
+    return data;
   }
 }

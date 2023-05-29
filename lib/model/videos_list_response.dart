@@ -53,13 +53,13 @@ class SingleVideo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["title"] = title;
-    _data["link"] = link;
-    _data["status"] = status;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["title"] = title;
+    data["link"] = link;
+    data["status"] = status;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
+    return data;
   }
 }

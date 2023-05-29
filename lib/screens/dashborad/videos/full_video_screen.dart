@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/utils/app_colors.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -19,7 +18,7 @@ class _FullVideoScreenState extends State<FullVideoScreen> {
     super.initState();
     _controller = YoutubePlayerController(
       initialVideoId: widget.videoId,
-      flags: YoutubePlayerFlags(
+      flags: const YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
         isLive: false,
@@ -34,7 +33,7 @@ class _FullVideoScreenState extends State<FullVideoScreen> {
         controller: _controller!,
         showVideoProgressIndicator: true,
         progressIndicatorColor: Colors.amber,
-        progressColors: ProgressBarColors(
+        progressColors: const ProgressBarColors(
           playedColor: Colors.amber,
           handleColor: Colors.amberAccent,
         ),

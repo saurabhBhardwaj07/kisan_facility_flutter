@@ -1,12 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kisan_facility/model/address_list_response.dart';
 import 'package:kisan_facility/screens/dashborad/address/repository/address_repository.dart';
-import 'package:kisan_facility/screens/onboardiing/controller/onboarding_controller.dart';
 import 'package:kisan_facility/utils/app_snackbar.dart';
 
 final userAddressList = Provider<List<SingleAddress>>((ref) => []);
+final userDefaultAddress = StateProvider<SingleAddress?>((ref) => null);
 
 final addressControllerProvider =
     StateNotifierProvider<AddressController, bool>((ref) {
@@ -31,7 +33,13 @@ class AddressController extends StateNotifier<bool> {
     state = false;
     addresses.fold((l) => showSnackBar(context, l.message), (address) {
       _ref.watch(userAddressList).clear();
+      _ref.read(userDefaultAddress.notifier).update((state) => null);
       _ref.read(userAddressList).addAll(address);
+      for (var x in address) {
+        if (x.isDefault == "1") {
+          _ref.read(userDefaultAddress.notifier).update((state) => x);
+        }
+      }
     });
   }
 
@@ -54,10 +62,11 @@ class AddressController extends StateNotifier<bool> {
     address.fold((l) => showSnackBar(context, l.message), (address) {
       if (isEditable == true) {
         getUserAddress(context);
+        log("fetching");
       } else {
         _ref.read(userAddressList).add(address);
       }
-      Navigator.pop(context);
+      Navigator.pop(context, {});
     });
   }
 

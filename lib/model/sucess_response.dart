@@ -14,11 +14,11 @@ class SuccessResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["message"] = message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["message"] = message;
     // if(data != null) {
     //   _data["data"] = data?.toJson();
     // }
-    return _data;
+    return data;
   }
 }

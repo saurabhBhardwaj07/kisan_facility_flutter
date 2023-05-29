@@ -8,7 +8,7 @@ import 'package:kisan_facility/model/crop_practice_list_response.dart';
 class CropDetailsScreen extends StatelessWidget {
   final Crops crop;
 
-  CropDetailsScreen({super.key, required this.crop});
+  const CropDetailsScreen({super.key, required this.crop});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +18,13 @@ class CropDetailsScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: TopWidget(
                     centerText: crop.name ?? "",
-                    trailing: SizedBox(),
+                    trailing: const SizedBox(),
                     leading: InkWell(
                         onTap: () => Navigator.pop(context),
-                        child: Icon(Icons.arrow_back_ios))),
+                        child: const Icon(Icons.arrow_back_ios))),
               ),
               SizedBox(
                 height: 20.h,
@@ -33,7 +33,7 @@ class CropDetailsScreen extends StatelessWidget {
                 imageUrl:
                     "https://kisan-facility.mmssatta.in/api/media/crops/${crop.image?.path}",
                 width: double.infinity,
-                errorWidget: (context, url, error) => Icon(Icons.error),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
                 fit: BoxFit.cover,
               ),
               SizedBox(
@@ -45,9 +45,9 @@ class CropDetailsScreen extends StatelessWidget {
                   style:
                       TextStyle(fontWeight: FontWeight.w700, fontSize: 20.sp),
                 ),
-                tilePadding: EdgeInsets.all(0),
+                tilePadding: const EdgeInsets.all(0),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                childrenPadding: EdgeInsets.all(0),
+                childrenPadding: const EdgeInsets.all(0),
                 children: <Widget>[
                   Text(
                     crop.introduction ?? "",
@@ -66,9 +66,9 @@ class CropDetailsScreen extends StatelessWidget {
                   style:
                       TextStyle(fontWeight: FontWeight.w700, fontSize: 20.sp),
                 ),
-                tilePadding: EdgeInsets.all(0),
+                tilePadding: const EdgeInsets.all(0),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                childrenPadding: EdgeInsets.all(0),
+                childrenPadding: const EdgeInsets.all(0),
                 children: <Widget>[
                   Text(
                     crop.climate ?? "",
@@ -87,9 +87,9 @@ class CropDetailsScreen extends StatelessWidget {
                   style:
                       TextStyle(fontWeight: FontWeight.w700, fontSize: 20.sp),
                 ),
-                tilePadding: EdgeInsets.all(0),
+                tilePadding: const EdgeInsets.all(0),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                childrenPadding: EdgeInsets.all(0),
+                childrenPadding: const EdgeInsets.all(0),
                 children: <Widget>[
                   Text(crop.soil ?? ""),
                   SizedBox(
@@ -106,9 +106,9 @@ class CropDetailsScreen extends StatelessWidget {
                   style:
                       TextStyle(fontWeight: FontWeight.w700, fontSize: 20.sp),
                 ),
-                tilePadding: EdgeInsets.all(0),
+                tilePadding: const EdgeInsets.all(0),
                 expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                childrenPadding: EdgeInsets.all(0),
+                childrenPadding: const EdgeInsets.all(0),
                 children: <Widget>[
                   Text(crop.season ?? ""),
                   SizedBox(

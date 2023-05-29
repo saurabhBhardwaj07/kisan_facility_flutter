@@ -21,7 +21,7 @@ class AddressScreen extends ConsumerStatefulWidget {
 class _AddressScreenState extends ConsumerState<AddressScreen> {
   @override
   void didChangeDependencies() {
-    Future.delayed(Duration(milliseconds: 1200)).then((value) =>
+    Future.delayed(const Duration(milliseconds: 1200)).then((value) =>
         ref.read(addressControllerProvider.notifier).getUserAddress(context));
     super.didChangeDependencies();
   }
@@ -37,15 +37,15 @@ class _AddressScreenState extends ConsumerState<AddressScreen> {
               child: TopWidget(
                   centerText: "Your Address",
                   trailing: IconButton(
-                    icon: Icon(Icons.add),
+                    icon: const Icon(Icons.add),
                     onPressed: () =>
-                        AppNavigation.goScreen(context, AddAddressScreen()),
+                        AppNavigation.goScreen(context, const AddAddressScreen()),
                   ),
                   leading: InkWell(
                       onTap: () => Navigator.pop(context),
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20.0),
-                        child: const Icon(Icons.arrow_back_ios),
+                      child: const Padding(
+                        padding: EdgeInsets.only(right: 20.0),
+                        child: Icon(Icons.arrow_back_ios),
                       ))),
             ),
             SizedBox(
@@ -63,15 +63,15 @@ class _AddressScreenState extends ConsumerState<AddressScreen> {
                       );
                     })
                   : addressList.isEmpty
-                      ? Padding(
-                          padding: const EdgeInsets.symmetric(
+                      ? const Padding(
+                          padding: EdgeInsets.symmetric(
                               horizontal: 50.0, vertical: 25),
-                          child: const Text(
+                          child: Text(
                               "You have not add address Yet! \n click on + icon to add address"),
                         )
                       : ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: addressList.length,
                           itemBuilder: (context, index) {
                             var element = addressList[index];
@@ -104,7 +104,7 @@ class AddressSingleItem extends StatelessWidget {
           children: [
             address.isDefault == "1"
                 ? const Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
+                    padding: EdgeInsets.only(bottom: 8.0),
                     child: Text(
                       "Is Default",
                       style: TextStyle(
@@ -148,7 +148,7 @@ class AddressSingleItem extends StatelessWidget {
                               isEditable: true,
                               address: address,
                             )),
-                        icon: Icon(Icons.edit)),
+                        icon: const Icon(Icons.edit)),
                     SizedBox(
                       height: 10.h,
                     ),
@@ -159,7 +159,7 @@ class AddressSingleItem extends StatelessWidget {
                                 .watch(addressControllerProvider.notifier)
                                 .deleteAddress(address.id ?? "", context);
                           },
-                          icon: Icon(Icons.delete));
+                          icon: const Icon(Icons.delete));
                     })
                   ],
                 )

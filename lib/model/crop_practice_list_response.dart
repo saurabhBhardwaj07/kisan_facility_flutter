@@ -18,9 +18,7 @@ class CropPracticeListResponse {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
     _data["message"] = message;
-    if (data != null) {
-      _data["data"] = data.map((e) => e.toJson()).toList();
-    }
+    _data["data"] = data.map((e) => e.toJson()).toList();
     return _data;
   }
 }
@@ -59,17 +57,15 @@ class SingleCropPractice {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["name"] = name;
-    _data["description"] = description;
-    _data["status"] = status;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
-    if (crops != null) {
-      _data["crops"] = crops.map((e) => e.toJson()).toList();
-    }
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["name"] = name;
+    data["description"] = description;
+    data["status"] = status;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
+    data["crops"] = crops.map((e) => e.toJson()).toList();
+    return data;
   }
 }
 
@@ -136,21 +132,21 @@ class Crops {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["crop_category_id"] = cropCategoryId;
-    _data["name"] = name;
-    _data["introduction"] = introduction;
-    _data["climate"] = climate;
-    _data["soil"] = soil;
-    _data["season"] = season;
-    _data["status"] = status;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["crop_category_id"] = cropCategoryId;
+    data["name"] = name;
+    data["introduction"] = introduction;
+    data["climate"] = climate;
+    data["soil"] = soil;
+    data["season"] = season;
+    data["status"] = status;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
     if (image != null) {
-      _data["image"] = image?.toJson();
+      data["image"] = image?.toJson();
     }
-    return _data;
+    return data;
   }
 }
 
@@ -196,16 +192,16 @@ class CropImage {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["type"] = type;
-    _data["name"] = name;
-    _data["path"] = path;
-    _data["extension"] = extension;
-    _data["mediable_type"] = mediableType;
-    _data["mediable_id"] = mediableId;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["type"] = type;
+    data["name"] = name;
+    data["path"] = path;
+    data["extension"] = extension;
+    data["mediable_type"] = mediableType;
+    data["mediable_id"] = mediableId;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
+    return data;
   }
 }

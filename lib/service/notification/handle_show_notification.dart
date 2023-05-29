@@ -1,5 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:kisan_facility/service/notification/awesome_notification_service.dart';
+import 'package:kisan_facility/service/notification/local_notification_service.dart';
 
 class ShowNotification {
   void listenFCM() {
@@ -32,10 +32,7 @@ class ShowNotification {
           print(message.notification!.title);
           print(message.notification!.body);
           print("message.data11 ${message.data}");
-          createAppNotification(
-            title: message.notification!.title ?? "",
-            body: message.notification!.body,
-          );
+          LocalNotificationService.createanddisplaynotification(message);
         }
       },
     );

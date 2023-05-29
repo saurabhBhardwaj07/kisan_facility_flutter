@@ -1,19 +1,16 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kisan_facility/components/app_logo_widget.dart';
 import 'package:kisan_facility/components/custom_rounded_button.dart';
 import 'package:kisan_facility/components/custom_textfrom_field.dart';
 import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/components/login_signup_bottom_text.dart';
 import 'package:kisan_facility/components/top_widget.dart';
 import 'package:kisan_facility/mixins/image_picker.dart';
-import 'package:kisan_facility/mixins/selectable_sheet_mixin.dart';
 import 'package:kisan_facility/screens/onboardiing/controller/onboarding_controller.dart';
 import 'package:kisan_facility/screens/onboardiing/login_screen.dart';
 import 'package:kisan_facility/state_provider/logged_user_stateprovider.dart';
@@ -111,7 +108,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen>
                             onTap: () => Navigator.pop(context),
                             child: const Icon(Icons.arrow_back_ios))),
                   )
-                : SizedBox(),
+                : const SizedBox(),
 
             SizedBox(
               height: 20.h,
@@ -239,11 +236,13 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen>
             SizedBox(
               height: 20.h,
             ),
-            CustomTextronField(
-              inputController: passwordCtrl,
-              hintText: "************",
-              labelText: 'Password',
-            ),
+            !widget.onBoarding
+                ? const SizedBox()
+                : CustomTextronField(
+                    inputController: passwordCtrl,
+                    hintText: "************",
+                    labelText: 'Password',
+                  ),
             SizedBox(
               height: 20.h,
             ),

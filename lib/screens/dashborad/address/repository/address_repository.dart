@@ -66,7 +66,7 @@ class AddressRepository {
 
   FutureEither<SingleAddress> deleteAddress(String id) async {
     try {
-      final resp = await _networkClient.post(apiBaseUrl + "${userAddress}/$id",
+      final resp = await _networkClient.post("$apiBaseUrl$userAddress/$id",
           queryParameters: {"_method": "DELETE"});
       var deleteAddress = SingleAddress.fromJson(resp.data['data']);
       return Right(deleteAddress);

@@ -1,12 +1,9 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_multi_formatter/formatters/pos_input_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:kisan_facility/model/place_mark_location.dart';
-import 'package:kisan_facility/screens/dashborad/weather/weather_screen.dart';
 import 'package:kisan_facility/service/location/location_service.dart';
 import 'package:kisan_facility/utils/app_colors.dart';
 
@@ -41,7 +38,7 @@ class UserLocationController extends StateNotifier<PlaceMarkLocation?> {
             children: <Widget>[
               TextButton(
                 child: const Text(" Approve",
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: AppColors.kPrimaryColor,
                         fontWeight: FontWeight.bold)),
                 onPressed: () async {
@@ -51,7 +48,7 @@ class UserLocationController extends StateNotifier<PlaceMarkLocation?> {
               ),
               TextButton(
                 child: const Text("Ignore",
-                    style: const TextStyle(color: AppColors.kPrimaryColor)),
+                    style: TextStyle(color: AppColors.kPrimaryColor)),
                 onPressed: () => Navigator.of(context).pop(true),
               ),
             ],

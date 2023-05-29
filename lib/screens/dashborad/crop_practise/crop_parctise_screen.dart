@@ -110,7 +110,7 @@ class CropPracticeScreen extends StatelessWidget {
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(20),
-                                                        child: Container(
+                                                        child: SizedBox(
                                                             height: 120.h,
                                                             child:
                                                                 CachedNetworkImage(

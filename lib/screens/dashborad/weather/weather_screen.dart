@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -87,7 +85,7 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
                                                   .format(DateTime.parse(
                                                       element.date.toString()))
                                                   .toString()),
-                                              Spacer(),
+                                              const Spacer(),
                                               Text(element.hourly[0]
                                                       .weatherDesc![0].value ??
                                                   ""),
@@ -121,7 +119,7 @@ class _WeatherScreenState extends ConsumerState<WeatherScreen> {
                                                       "Sunset : ${element.astronomy![0].sunset}"),
                                                 ],
                                               ),
-                                              Spacer(),
+                                              const Spacer(),
                                               Image.network(element
                                                       .hourly[0]
                                                       .weatherIconUrl![0]

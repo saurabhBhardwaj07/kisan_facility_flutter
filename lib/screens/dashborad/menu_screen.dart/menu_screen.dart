@@ -4,11 +4,13 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kisan_facility/cache/storage_shared_pref.dart';
 import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/components/profile_header.dart';
-import 'package:kisan_facility/screens/dashborad/address/add_address_screen.dart';
 import 'package:kisan_facility/screens/dashborad/address/address_screen.dart';
+import 'package:kisan_facility/screens/dashborad/dashborad.dart';
+import 'package:kisan_facility/screens/dashborad/home/home_screen.dart';
 import 'package:kisan_facility/screens/dashborad/menu_screen.dart/contact_us.dart';
+import 'package:kisan_facility/screens/dashborad/menu_screen.dart/my_orders_screen.dart';
+import 'package:kisan_facility/screens/dashborad/shop/shop_screen.dart';
 import 'package:kisan_facility/screens/onboardiing/login_screen.dart';
-import 'package:kisan_facility/service/notification/awesome_notification_service.dart';
 import 'package:kisan_facility/utils/navigation_shortcut.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -31,16 +33,16 @@ class _MenuScreenState extends State<MenuScreen> {
         text: "My Orders"));
     menuOption.add(ProfileMenuOption(
         id: 2, assetsPath: "assets/images/location.png", text: "My Addresses"));
-    menuOption.add(ProfileMenuOption(
-        id: 3,
-        assetsPath: "assets/images/save-instagram.png",
-        text: "Saved For Later"));
+    // menuOption.add(ProfileMenuOption(
+    //     id: 3,
+    //     assetsPath: "assets/images/save-instagram.png",
+    //     text: "Saved For Later"));
     menuOption.add(ProfileMenuOption(
         id: 4, assetsPath: "assets/images/contact.png", text: "Contact Us"));
-    menuOption.add(ProfileMenuOption(
-        id: 5, assetsPath: "assets/images/about.png", text: "About"));
-    menuOption.add(ProfileMenuOption(
-        id: 6, assetsPath: "assets/images/rating.png", text: "Rate App"));
+    // menuOption.add(ProfileMenuOption(
+    //     id: 5, assetsPath: "assets/images/about.png", text: "About"));
+    // menuOption.add(ProfileMenuOption(
+    //     id: 6, assetsPath: "assets/images/rating.png", text: "Rate App"));
     menuOption.add(ProfileMenuOption(
         id: 7, assetsPath: "assets/images/logout.png", text: "Logout"));
   }
@@ -91,19 +93,27 @@ class _MenuScreenState extends State<MenuScreen> {
                         }
 
                         if (element.id == 2) {
-                          AppNavigation.goScreen(context, AddressScreen());
+                          AppNavigation.goScreen(
+                              context, const AddressScreen());
                         }
 
                         if (element.id == 4) {
-                          AppNavigation.goScreen(context, ContactUsScreen());
+                          AppNavigation.goScreen(
+                              context, const ContactUsScreen());
                         }
 
                         if (element.id == 1) {
-                          createAppNotification(
-                            title: "Kisan Facility",
-                            body:
-                                "Your Enquiry has submitted, we will connect with you soon",
-                          );
+                          AppNavigation.goScreen(
+                              context, const MyOrderScreen());
+                        }
+
+                        if (element.id == 0) {
+                          AppNavigation.newScreen(
+                              context,
+                              DashBoardScreen(
+                                child: HomeScreen(),
+                                bottomNavIndex: -1,
+                              ));
                         }
                       },
                       child: Padding(

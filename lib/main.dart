@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -9,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kisan_facility/screens/spalsh_screen.dart';
-import 'package:kisan_facility/service/notification/awesome_notification_service.dart';
+import 'package:kisan_facility/service/notification/local_notification_service.dart';
 import 'package:kisan_facility/utils/app_colors.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
@@ -27,8 +26,8 @@ void main() async {
     //--------- fireBase Binding------
     await Firebase.initializeApp();
 
-    // --- awesome notification ----------
-    // await AwesomeNotificationService.initializedNotification();
+    //-------------- local Notification -----------
+    LocalNotificationService.initialize();
 
     //--- background messaging
     FirebaseMessaging.onBackgroundMessage(backgroundHandler);

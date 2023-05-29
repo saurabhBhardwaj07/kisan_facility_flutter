@@ -3,27 +3,32 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:kisan_facility/components/dashboard_header.dart';
 import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/components/option_heading_with_view_all.dart';
+import 'package:kisan_facility/components/product_list_screen.dart';
 import 'package:kisan_facility/components/product_single_item.dart';
 import 'package:kisan_facility/screens/dashborad/crop_practise/crop_parctise_screen.dart';
+import 'package:kisan_facility/screens/dashborad/dashborad.dart';
 import 'package:kisan_facility/screens/dashborad/govt_scheme/govt_scheme.dart';
 import 'package:kisan_facility/screens/dashborad/news/news_list_screen.dart';
+import 'package:kisan_facility/screens/dashborad/shop/controller/shop_controller.dart';
+import 'package:kisan_facility/screens/dashborad/shop/shop_screen.dart';
 import 'package:kisan_facility/screens/dashborad/videos/videos_screen.dart';
 import 'package:kisan_facility/screens/dashborad/weather/weather_screen.dart';
 import 'package:kisan_facility/utils/app_colors.dart';
-import 'package:kisan_facility/state_provider/product_list_provider.dart';
+// import 'package:kisan_facility/state_provider/product_list_provider.dart';
 import 'package:kisan_facility/utils/navigation_shortcut.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   List<HomeCategories> homeCategories = [];
   PageController imageController = PageController();
 
@@ -56,6 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     });
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    Future.delayed(const Duration(milliseconds: 1200)).then((value) =>
+        ref.read(shopControllerProvider.notifier).getProductList(context));
+    super.didChangeDependencies();
   }
 
   @override
@@ -106,6 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             // Image.network(
             //     "https://kisan-facility.mmssatta.in/api/media/news/645e8c7cd212a.jpg"),
+
             GridView.builder(
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -137,6 +150,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       if (element.id == 4) {
                         AppNavigation.goScreen(context, const WeatherScreen());
                       }
+
+                      if (element.id == 1) {
+                        AppNavigation.newScreen(
+                            context,
+                            DashBoardScreen(
+                              child: ShoppingScreen(),
+                              bottomNavIndex: 1,
+                            ));
+                      }
                     },
                     child: Card(
                       shadowColor: AppColors.kPrimaryLightColor,
@@ -164,43 +186,61 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 }),
+
             const SizedBox(
               height: 20,
             ),
-            const OptionHeadingWithViewAll(
-              heading: "Recommended Products",
+            InkWell(
+              onTap: () => AppNavigation.goScreen(
+                  context,
+                  ProductListScreen(
+                      products: ref.watch(productListProvider),
+                      title: "Recommended Products")),
+              child: const OptionHeadingWithViewAll(
+                heading: "Recommended Products",
+              ),
             ),
             const SizedBox(
               height: 10,
             ),
-            Consumer(builder: (context, ref, widget) {
-              final product = ref.watch(productListProvider);
-              return product.when(
-                  data: (value) {
-                    return GridView.builder(
-                        itemCount: value.length,
-                        shrinkWrap: true,
-                        padding: EdgeInsets.only(bottom: 30.h),
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 8,
-                            mainAxisExtent: 240.h,
-                            mainAxisSpacing: 8),
-                        itemBuilder: (context, index) {
-                          var element = value[index];
-                          return ProductSingleItem(element: element);
-                        });
-                  },
-                  error: (err, stackTrace) {
-                    return Text("error: $err");
-                  },
-                  loading: () => const SizedBox(
-                      height: 40,
-                      width: 50,
-                      child: CircularProgressIndicator(
-                        color: AppColors.chartreuse,
-                      )));
+            Builder(builder: (context) {
+              final loading = ref.watch(shopControllerProvider);
+              final productList = ref.watch(topFourRecommendedProductProvider);
+              return Consumer(builder: (context, ref, widget) {
+                return loading == true
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        child: SpinKitWave(
+                            itemBuilder: (BuildContext context, int index) {
+                          return DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: index.isEven ? Colors.red : Colors.green,
+                            ),
+                          );
+                        }),
+                      )
+                    : productList.isEmpty
+                        ? const Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 50.0, vertical: 25),
+                            child: Text("No Product"),
+                          )
+                        : GridView.builder(
+                            itemCount: productList.length,
+                            shrinkWrap: true,
+                            padding: EdgeInsets.only(bottom: 30.h),
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 8,
+                                    mainAxisExtent: 240.h,
+                                    mainAxisSpacing: 8),
+                            itemBuilder: (context, index) {
+                              var element = productList[index];
+                              return ProductSingleItem(element: element);
+                            });
+              });
             })
           ],
         ));

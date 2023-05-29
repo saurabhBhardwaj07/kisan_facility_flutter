@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kisan_facility/screens/dashborad/home/home_screen.dart';
 import 'package:kisan_facility/screens/dashborad/message/message_screen.dart';
 import 'package:kisan_facility/screens/dashborad/settings/setting_screen.dart';
+import 'package:kisan_facility/screens/dashborad/shop/controller/cart_controlller.dart';
 import 'package:kisan_facility/screens/dashborad/shop/shop_screen.dart';
 import 'package:kisan_facility/service/notification/handle_show_notification.dart';
 import 'package:kisan_facility/state_provider/user_location_provider.dart';
@@ -32,6 +33,9 @@ class _DashBoardScreenState extends ConsumerState<DashBoardScreen> {
   @override
   void initState() {
     ShowNotification().listenFCM();
+    Future.delayed(const Duration(milliseconds: 800)).then((value) =>
+        ref.read(cartControllerProvider.notifier).getCartList(context));
+
     super.initState();
   }
 

@@ -53,6 +53,8 @@ class OnBoardingRepository {
       String? gender,
       File? profile,
       bool isUpdate = false}) async {
+    log(isUpdate.toString());
+    log(profile!.path.toString());
     try {
       FormData data = FormData.fromMap({
         "first_name": firstname,
@@ -75,11 +77,12 @@ class OnBoardingRepository {
         data.files.add(profileImage);
       }
 
+      print(data.files.map((e) => e));
+      print(data.fields.map((e) => e));
+
       final resp = await _networkClient.post(
           apiBaseUrl + (isUpdate == true ? updateUserPoint : signUpPoint),
           body: data);
-      print(data.files.map((e) => e));
-      print(data.fields.map((e) => e));
 
       var user = UserModel.fromJson(resp.data);
       return right(user);
@@ -130,7 +133,7 @@ class OnBoardingRepository {
       print(err.response?.data);
       return left(Failure(err.response?.data["message"]));
     } catch (err) {
-      return left(Failure(err.toString()));
+      return left(Failure("Logout"));
     }
   }
 }

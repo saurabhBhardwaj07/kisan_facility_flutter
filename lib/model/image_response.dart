@@ -40,16 +40,16 @@ class ImageUrl {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["type"] = type;
-    _data["name"] = name;
-    _data["path"] = path;
-    _data["extension"] = extension;
-    _data["mediable_type"] = mediableType;
-    _data["mediable_id"] = mediableId;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["type"] = type;
+    data["name"] = name;
+    data["path"] = path;
+    data["extension"] = extension;
+    data["mediable_type"] = mediableType;
+    data["mediable_id"] = mediableId;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
+    return data;
   }
 }

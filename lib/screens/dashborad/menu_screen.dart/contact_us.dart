@@ -6,11 +6,11 @@ import 'package:kisan_facility/components/custom_textfrom_field.dart';
 import 'package:kisan_facility/components/layout.dart';
 import 'package:kisan_facility/components/top_widget.dart';
 import 'package:kisan_facility/screens/dashborad/menu_screen.dart/repository/menu_screen_repository.dart';
-import 'package:kisan_facility/service/notification/awesome_notification_service.dart';
+import 'package:kisan_facility/service/notification/local_notification_service.dart';
 import 'package:kisan_facility/utils/app_snackbar.dart';
 
 class ContactUsScreen extends StatefulWidget {
-  ContactUsScreen({super.key});
+  const ContactUsScreen({super.key});
 
   @override
   State<ContactUsScreen> createState() => _ContactUsScreenState();
@@ -36,10 +36,9 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
       loading = false;
     });
     resp.fold((l) => showSnackBar(context, l.message), (r) {
-      createAppNotification(
-        title: "Kisan Facility",
-        body: "Your Enquiry has submitted, we will connect with you soon",
-      );
+      LocalNotificationService.showBigTextNotification(
+          title: "You Query is submit",
+          body: "No worries we connect with you soon");
       Navigator.pop(context);
     });
   }
@@ -71,7 +70,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const [
                         Icon(Icons.location_on),
                         SizedBox(
                           width: 10,
@@ -82,11 +81,11 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
-                      children: [
+                      children: const [
                         Icon(Icons.call),
                         SizedBox(
                           width: 10,
@@ -96,11 +95,11 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
-                      children: [
+                      children: const [
                         Icon(Icons.mail),
                         SizedBox(
                           width: 10,

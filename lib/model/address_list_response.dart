@@ -73,18 +73,18 @@ class SingleAddress {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["user_id"] = userId;
-    _data["name"] = name;
-    _data["address"] = address;
-    _data["country"] = country;
-    _data["state"] = state;
-    _data["city"] = city;
-    _data["pincode"] = pincode;
-    _data["is_default"] = isDefault;
-    _data["id"] = id;
-    _data["updated_at"] = updatedAt;
-    _data["created_at"] = createdAt;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["user_id"] = userId;
+    data["name"] = name;
+    data["address"] = address;
+    data["country"] = country;
+    data["state"] = state;
+    data["city"] = city;
+    data["pincode"] = pincode;
+    data["is_default"] = isDefault;
+    data["id"] = id;
+    data["updated_at"] = updatedAt;
+    data["created_at"] = createdAt;
+    return data;
   }
 }

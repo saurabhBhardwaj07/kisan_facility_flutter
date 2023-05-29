@@ -7,7 +7,7 @@ import 'package:kisan_facility/utils/app_colors.dart';
 typedef ImageSelectedCallback = Function(File selectedFile);
 
 mixin ImagePickerMixin {
-  void showImagePickerOptions(BuildContext context, ImagePicker _picker,
+  void showImagePickerOptions(BuildContext context, ImagePicker picker,
       ImageSelectedCallback callback) {
     showModalBottomSheet(
         context: context,
@@ -26,14 +26,14 @@ mixin ImagePickerMixin {
                 ),
                 onTap: () {
                   _launchImagePicker(
-                      context, _picker, ImageSource.camera, callback);
+                      context, picker, ImageSource.camera, callback);
                 },
               ),
               const Divider(),
               ListTile(
                 onTap: () {
                   _launchImagePicker(
-                      context, _picker, ImageSource.gallery, callback);
+                      context, picker, ImageSource.gallery, callback);
                 },
                 title: const Text(
                   "Gallery",
@@ -51,9 +51,9 @@ mixin ImagePickerMixin {
         });
   }
 
-  void _launchImagePicker(BuildContext context, ImagePicker _picker,
+  void _launchImagePicker(BuildContext context, ImagePicker picker,
       ImageSource source, ImageSelectedCallback returnedFile) async {
-    XFile? pickedFile = await _picker.pickImage(source: source);
+    XFile? pickedFile = await picker.pickImage(source: source);
     if (pickedFile == null) return;
 
     File? croppedFile = await ImageCropper().cropImage(

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -111,7 +110,7 @@ class _SingleVideoItemState extends State<SingleVideoItem> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CachedNetworkImage(
-              imageUrl: "https://img.youtube.com/vi/${videoId}/0.jpg",
+              imageUrl: "https://img.youtube.com/vi/$videoId/0.jpg",
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
             SizedBox(

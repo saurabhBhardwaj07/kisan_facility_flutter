@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -57,43 +56,60 @@ class GovtSchemeScreen extends StatelessWidget {
                                   var element = data[index];
                                   return Padding(
                                     padding: EdgeInsets.only(bottom: 15.0.h),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text.rich(TextSpan(
-                                            text: element.name ?? "",
-                                            recognizer: TapGestureRecognizer()
-                                              ..onTap = () async {
-                                                var uri = Uri.parse(
-                                                    element.link ?? "");
-                                                if (await canLaunchUrl(uri)) {
-                                                  await launchUrl(uri);
-                                                } else {
-                                                  throw 'Could not launch $uri';
-                                                }
-                                              },
-                                            style: TextStyle(
-                                                fontSize: 20.sp,
-                                                color: AppColors.secondaryColor,
-                                                decoration:
-                                                    TextDecoration.underline),
-                                            children: const [
-                                              TextSpan(
-                                                  text:
-                                                      "    (Click Here to Visit)",
-                                                  style: TextStyle(
-                                                      fontSize: 12,
-                                                      decoration:
-                                                          TextDecoration.none,
-                                                      color:
-                                                          AppColors.indianRed))
-                                            ])),
-                                        SizedBox(
-                                          height: 10.h,
+                                    child: Card(
+                                      color: AppColors.kPrimaryLightColor,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        side: BorderSide(
+                                          color: AppColors.kPrimaryColor,
+                                          width: 1,
                                         ),
-                                        Text(element.description ?? ""),
-                                      ],
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(15.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text.rich(TextSpan(
+                                                text: element.name ?? "",
+                                                recognizer:
+                                                    TapGestureRecognizer()
+                                                      ..onTap = () async {
+                                                        var uri = Uri.parse(
+                                                            element.link ?? "");
+                                                        if (await canLaunchUrl(
+                                                            uri)) {
+                                                          await launchUrl(uri);
+                                                        } else {
+                                                          throw 'Could not launch $uri';
+                                                        }
+                                                      },
+                                                style: TextStyle(
+                                                    fontSize: 20.sp,
+                                                    color: AppColors
+                                                        .secondaryColor,
+                                                    decoration: TextDecoration
+                                                        .underline),
+                                                children: const [
+                                                  TextSpan(
+                                                      text:
+                                                          "    (Click Here to Visit)",
+                                                      style: TextStyle(
+                                                          fontSize: 12,
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none,
+                                                          color: AppColors
+                                                              .indianRed))
+                                                ])),
+                                            SizedBox(
+                                              height: 10.h,
+                                            ),
+                                            Text(element.description ?? ""),
+                                          ],
+                                        ),
+                                      ),
                                     ),
                                   );
                                 }),
