@@ -16,18 +16,20 @@ class ProfileHeader extends ConsumerWidget {
     final loggedUser = ref.watch(userProvider);
     return Row(
       children: [
-        // loggedUser?.user. != null
-        //     ?
-        // ClipRRect(
-        //   borderRadius: BorderRadius.circular(50),
-        //   child: Image.network(loggedUser?.profilePic ?? ""),
-        // ),
-        // :
-        Image.asset(
-          "assets/images/user.png",
-          height: 90.h,
-          width: 90.w,
-        ),
+        loggedUser?.user?.image != null
+            ? ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                child: Image.network(
+                  "https://kisan-facility.mmssatta.in/api/media/users/${loggedUser?.user?.image?.path}",
+                  height: 90.h,
+                  width: 90.w,
+                ),
+              )
+            : Image.asset(
+                "assets/images/user.png",
+                height: 90.h,
+                width: 90.w,
+              ),
         const Spacer(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

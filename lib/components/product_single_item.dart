@@ -124,11 +124,11 @@ class ProductSingleItem extends StatelessWidget {
               SizedBox(
                 height: 5.h,
               ),
-              // AppText.large(
-              //   "You saving \u{20B9} ${element.price! * element.discount / 100} on this.",
-              //   fontSize: 12.sp,
-              //   color: AppColors.fireBrick,
-              // )
+              AppText.large(
+                "You saving \u{20B9} ${element.price * element.discount / 100} on this.",
+                fontSize: 12.sp,
+                color: AppColors.fireBrick,
+              )
             ],
           )),
     );

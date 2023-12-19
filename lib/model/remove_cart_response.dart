@@ -17,9 +17,7 @@ class RemoveCartResponse {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
     _data["message"] = message;
-    if (data != null) {
-      _data["data"] = data?.toJson();
-    }
+    _data["data"] = data?.toJson();
     return _data;
   }
 }
@@ -58,14 +56,14 @@ class RemovedProduct {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["user_id"] = userId;
-    _data["product_id"] = productId;
-    _data["quantity"] = quantity;
-    _data["price"] = price;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["user_id"] = userId;
+    data["product_id"] = productId;
+    data["quantity"] = quantity;
+    data["price"] = price;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
+    return data;
   }
 }

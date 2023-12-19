@@ -39,7 +39,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: TopWidget(
                   centerText: "My Orders",
-                  trailing: SizedBox(),
+                  trailing: const SizedBox(),
                   leading: InkWell(
                       onTap: () => Navigator.pop(context),
                       child: const Icon(Icons.arrow_back_ios))),
@@ -63,7 +63,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                                   color: AppColors.kPrimaryLightColor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10),
-                                    side: BorderSide(
+                                    side: const BorderSide(
                                       color: AppColors.kPrimaryColor,
                                       width: 1,
                                     ),
@@ -91,7 +91,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                                                       maxLines: 1,
                                                       minFontSize: 10,
                                                     ),
-                                                    SizedBox(
+                                                    const SizedBox(
                                                       height: 10,
                                                     ),
                                                     Row(
@@ -121,10 +121,10 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
                                                   ],
                                                 ))
                                             .toList(),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
+                                        const Text(
                                           "Delivery Address",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold),

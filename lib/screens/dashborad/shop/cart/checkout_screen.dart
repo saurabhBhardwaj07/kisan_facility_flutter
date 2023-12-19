@@ -9,9 +9,7 @@ import 'package:kisan_facility/model/cart_list_response.dart';
 import 'package:kisan_facility/screens/dashborad/address/add_address_screen.dart';
 import 'package:kisan_facility/screens/dashborad/address/address_screen.dart';
 import 'package:kisan_facility/screens/dashborad/address/controller/address_controller.dart';
-import 'package:kisan_facility/screens/dashborad/shop/booking_succes_screen.dart';
 import 'package:kisan_facility/screens/dashborad/shop/controller/cart_controlller.dart';
-import 'package:kisan_facility/service/notification/local_notification_service.dart';
 import 'package:kisan_facility/utils/app_colors.dart';
 import 'package:kisan_facility/utils/navigation_shortcut.dart';
 
@@ -27,7 +25,7 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
-  final styleX = TextStyle(
+  final styleX = const TextStyle(
       fontWeight: FontWeight.bold, fontSize: 15, color: AppColors.primaryColor);
 
   List<String> option = ["COD", "Card Pay"];
@@ -79,7 +77,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Text(
+                                      const Text(
                                         "Oops! You dont have a Default Address \n",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -98,7 +96,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                 .getUserAddress(context);
                                           }
                                         },
-                                        child: Text(
+                                        child: const Text(
                                           "Click Here To Add",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
@@ -114,18 +112,18 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   SizedBox(
                     height: 15.h,
                   ),
-                  Text(
+                  const Text(
                     "Order Details",
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: AppColors.kPrimaryColor),
                   ),
-                  Divider(),
+                  const Divider(),
                   ListView.builder(
                       itemCount: widget.orderProduct.length,
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) {
                         var element = widget.orderProduct[index];
                         return Padding(
@@ -152,7 +150,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   SizedBox(
                     height: 15.h,
                   ),
-                  Divider(),
+                  const Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -166,7 +164,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       ),
                     ],
                   ),
-                  Divider(),
+                  const Divider(),
                 ],
               ),
             ),
@@ -182,7 +180,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           selectedOption = index;
                         });
                       }),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Text(e)

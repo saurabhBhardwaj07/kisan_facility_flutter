@@ -67,15 +67,13 @@ class OnBoardingRepository {
         "gender": gender,
       });
 
-      if (profile != null) {
-        String filename = profile.path.split("/").last;
-        MapEntry<String, MultipartFile> profileImage = MapEntry(
-          'file',
-          await MultipartFile.fromFile(profile.path, filename: filename),
-        );
+      String filename = profile.path.split("/").last;
+      MapEntry<String, MultipartFile> profileImage = MapEntry(
+        'file',
+        await MultipartFile.fromFile(profile.path, filename: filename),
+      );
 
-        data.files.add(profileImage);
-      }
+      data.files.add(profileImage);
 
       print(data.files.map((e) => e));
       print(data.fields.map((e) => e));

@@ -20,9 +20,7 @@ class CartListResponse {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
     _data["message"] = message;
-    if (data != null) {
-      _data["data"] = data.map((e) => e.toJson()).toList();
-    }
+    _data["data"] = data.map((e) => e.toJson()).toList();
     return _data;
   }
 }
@@ -67,17 +65,17 @@ class SingleCartItem {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["user_id"] = userId;
-    _data["product_id"] = productId;
-    _data["quantity"] = quantity;
-    _data["price"] = price;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["user_id"] = userId;
+    data["product_id"] = productId;
+    data["quantity"] = quantity;
+    data["price"] = price;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
     if (product != null) {
-      _data["product"] = product?.toJson();
+      data["product"] = product?.toJson();
     }
-    return _data;
+    return data;
   }
 }

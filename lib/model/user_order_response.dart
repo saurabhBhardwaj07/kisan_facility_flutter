@@ -74,21 +74,21 @@ class SingeUserOrder {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["user_id"] = userId;
-    _data["user_address_id"] = userAddressId;
-    _data["total_price"] = totalPrice;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["user_id"] = userId;
+    data["user_address_id"] = userAddressId;
+    data["total_price"] = totalPrice;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
     if (user != null) {
-      _data["user"] = user?.toJson();
+      data["user"] = user?.toJson();
     }
     if (address != null) {
-      _data["address"] = address?.toJson();
+      data["address"] = address?.toJson();
     }
-    _data["order_products"] = orderProducts.map((e) => e.toJson()).toList();
-    return _data;
+    data["order_products"] = orderProducts.map((e) => e.toJson()).toList();
+    return data;
   }
 }
 
@@ -142,17 +142,17 @@ class OrderProducts {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["order_id"] = orderId;
-    _data["product_id"] = productId;
-    _data["quantity"] = quantity;
-    _data["price"] = price;
-    _data["created_at"] = createdAt;
-    _data["updated_at"] = updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["order_id"] = orderId;
+    data["product_id"] = productId;
+    data["quantity"] = quantity;
+    data["price"] = price;
+    data["created_at"] = createdAt;
+    data["updated_at"] = updatedAt;
     if (product != null) {
-      _data["product"] = product?.toJson();
+      data["product"] = product?.toJson();
     }
-    return _data;
+    return data;
   }
 }

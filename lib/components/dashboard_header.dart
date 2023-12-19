@@ -36,15 +36,16 @@ class DashboardHeader extends ConsumerWidget {
               width: 5,
             ),
             InkWell(
-                onTap: () => AppNavigation.goScreen(context, const CartScreen()),
+                onTap: () =>
+                    AppNavigation.goScreen(context, const CartScreen()),
                 child: const AppCartIcon()),
             const SizedBox(
               width: 5,
             ),
-            const Icon(
-              Icons.favorite_outline_outlined,
-              size: 30,
-            )
+            // const Icon(
+            //   Icons.favorite_outline_outlined,
+            //   size: 30,
+            // )
           ],
         ),
       ),

@@ -118,7 +118,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
             // Image.network(
             //     "https://kisan-facility.mmssatta.in/api/media/news/645e8c7cd212a.jpg"),
-
             GridView.builder(
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -155,8 +154,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         AppNavigation.newScreen(
                             context,
                             DashBoardScreen(
-                              child: ShoppingScreen(),
                               bottomNavIndex: 1,
+                              child: const ShoppingScreen(),
                             ));
                       }
                     },

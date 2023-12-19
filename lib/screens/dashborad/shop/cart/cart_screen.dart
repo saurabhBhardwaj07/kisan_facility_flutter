@@ -55,10 +55,8 @@ class _CartScreenState extends ConsumerState<CartScreen> {
               return cartList.isEmpty
                   ? const SizedBox()
                   : Text(
-                      "You Save " +
-                          AppHelpString().changePrice(priceSave.toString()) +
-                          " On this order.",
-                      style: TextStyle(
+                      "You Save ${AppHelpString().changePrice(priceSave.toString())} On this order.",
+                      style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: AppColors.kPrimaryColor),
@@ -106,7 +104,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                 child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Total"),
+                                const Text("Total"),
                                 Text(
                                   AppHelpString()
                                       .changePrice(totalPrice.toString()),

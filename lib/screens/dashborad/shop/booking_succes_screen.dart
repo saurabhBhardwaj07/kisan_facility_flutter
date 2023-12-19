@@ -3,7 +3,7 @@ import 'package:kisan_facility/components/custom_rounded_button.dart';
 import 'package:kisan_facility/components/layout.dart';
 
 class SuccessScreen extends StatefulWidget {
-  SuccessScreen({Key? key}) : super(key: key);
+  const SuccessScreen({Key? key}) : super(key: key);
 
   @override
   _SuccessScreenState createState() => _SuccessScreenState();
@@ -18,21 +18,21 @@ class _SuccessScreenState extends State<SuccessScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset("assets/images/success.gif"),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             "Congratulation!",
             style: TextStyle(fontSize: 20),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             "Your Order Succesfully Placed",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           CustomRoundedButton(

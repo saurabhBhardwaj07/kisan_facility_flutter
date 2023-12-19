@@ -19,7 +19,7 @@ class SingleCartItemScreen extends StatelessWidget {
       color: AppColors.kPrimaryLightColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
-        side: BorderSide(
+        side: const BorderSide(
           color: AppColors.kPrimaryColor,
           width: 1,
         ),
@@ -109,6 +109,5 @@ class SingleCartItemScreen extends StatelessWidget {
         ]),
       ),
     );
-    ;
   }
 }

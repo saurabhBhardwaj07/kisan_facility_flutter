@@ -83,7 +83,7 @@ class CartController extends StateNotifier<int> {
           title: "Congratulation", body: "Your Order Places Successful");
       Navigator.pop(context);
       Navigator.pop(context);
-      AppNavigation.goScreen(context, SuccessScreen());
+      AppNavigation.goScreen(context, const SuccessScreen());
     });
   }
 }

@@ -9,7 +9,6 @@ import 'package:kisan_facility/screens/dashborad/dashborad.dart';
 import 'package:kisan_facility/screens/dashborad/home/home_screen.dart';
 import 'package:kisan_facility/screens/dashborad/menu_screen.dart/contact_us.dart';
 import 'package:kisan_facility/screens/dashborad/menu_screen.dart/my_orders_screen.dart';
-import 'package:kisan_facility/screens/dashborad/shop/shop_screen.dart';
 import 'package:kisan_facility/screens/onboardiing/login_screen.dart';
 import 'package:kisan_facility/utils/navigation_shortcut.dart';
 
@@ -111,8 +110,8 @@ class _MenuScreenState extends State<MenuScreen> {
                           AppNavigation.newScreen(
                               context,
                               DashBoardScreen(
-                                child: HomeScreen(),
                                 bottomNavIndex: -1,
+                                child: const HomeScreen(),
                               ));
                         }
                       },
