@@ -8,17 +8,11 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-17-54-071_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="120" height="100/">
-
-<img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-19-34-566_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="120" height="400/">
-
-<img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-20-28-715_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="120" height="400/">
-
-<img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-21-14-744_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="120" height="400/">
-
-<img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-19-47-901_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="120" height="400/">
-
-  
+![project-screenshot](https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-17-54-071_com.youngtechie.kisanfacility.jpg)
+![project-screenshot](https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-19-34-566_com.youngtechie.kisanfacility.jpg)
+![project-screenshot](https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-20-28-715_com.youngtechie.kisanfacility.jpg)
+![project-screenshot](https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-21-14-744_com.youngtechie.kisanfacility.jpg)
+![project-screenshot](https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-19-47-901_com.youngtechie.kisanfacility.jpg)
   
 <h2>🧐 Features</h2>
 
