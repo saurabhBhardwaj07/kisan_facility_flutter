@@ -1,16 +1,34 @@
-# kisan_facility
+# Kisan Facility Flutter
 
-A new Flutter project.
+[![Build Status](https://img.shields.io/travis/saurabhBhardwaj07/kisan_facility_flutter.svg?style=flat-square)](https://travis-ci.org/saurabhBhardwaj07/kisan_facility_flutter)
+[![License](https://img.shields.io/github/license/saurabhBhardwaj07/kisan_facility_flutter.svg?style=flat-square)](https://github.com/saurabhBhardwaj07/kisan_facility_flutter/blob/master/LICENSE)
+
+## Overview
+
+Provide a brief overview of your project here. Explain what the project is about, its main features, and its purpose.
+
+## Screenshots
+
+Include screenshots or GIFs of your application to give users a visual representation of what your project looks like.
+
+## Features
+
+- List key features of your project.
+- Explain what makes your project unique and useful.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+List any prerequisites or dependencies users need to have before they can use your project.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Provide step-by-step instructions on how to install your project. Include any necessary commands or configurations.
+
+```bash
+# Example installation commands
+git clone https://github.com/saurabhBhardwaj07/kisan_facility_flutter.git
+cd kisan_facility_flutter
+flutter pub get
+flutter run
