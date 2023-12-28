@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:dio_logger/dio_logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:kisan_facility/cache/storage_shared_pref.dart';
+import 'package:kisan_facility/data/cache/storage_shared_pref.dart';
 
 final networkClientProvider = Provider((ref) => NetworkClient());
 

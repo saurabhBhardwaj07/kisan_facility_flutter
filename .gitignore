@@ -42,3 +42,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Ignore JSON file in a specific directory
+/assets/dialog_flow_auth.json
