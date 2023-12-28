@@ -1,34 +1,55 @@
-# Kisan Facility Flutter
+<h1 align="center" id="title">Kisan Facility</h1>
 
-[![Build Status](https://img.shields.io/travis/saurabhBhardwaj07/kisan_facility_flutter.svg?style=flat-square)](https://travis-ci.org/saurabhBhardwaj07/kisan_facility_flutter)
-[![License](https://img.shields.io/github/license/saurabhBhardwaj07/kisan_facility_flutter.svg?style=flat-square)](https://github.com/saurabhBhardwaj07/kisan_facility_flutter/blob/master/LICENSE)
+<p align="center"><img src="https://socialify.git.ci/saurabhBhardwaj07/kisan_facility_flutter/image?description=1&amp;descriptionEditable=Introducing%20the%20Kishan%20Facility%20App%2C%20a%20comprehensive%20mobile%20application%20designed%20to%20empower%20farmers.%20&amp;font=Inter&amp;forks=1&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Overlapping%20Hexagons&amp;pulls=1&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
 
-## Overview
+<h2>🚀 Demo</h2>
 
-Provide a brief overview of your project here. Explain what the project is about, its main features, and its purpose.
+[https://github.com/saurabhBhardwaj07/kisan\_facility\_flutter/tree/main/screenshots](https://github.com/saurabhBhardwaj07/kisan_facility_flutter/tree/main/screenshots)
 
-## Screenshots
+<h2>Project Screenshots:</h2>
 
-Include screenshots or GIFs of your application to give users a visual representation of what your project looks like.
+<div style: "display: flex">
+  <img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-17-54-071_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="200" height="400/">
 
-## Features
+<img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-19-34-566_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="200" height="400/">
 
-- List key features of your project.
-- Explain what makes your project unique and useful.
+<img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-20-28-715_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="200" height="400/">
 
-## Getting Started
+<img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-21-14-744_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="200" height="400/">
 
-### Prerequisites
+<img src="https://raw.githubusercontent.com/saurabhBhardwaj07/kisan_facility_flutter/main/screenshots/Screenshot_2023-12-20-00-19-47-901_com.youngtechie.kisanfacility.jpg" alt="project-screenshot" width="200" height="400/">
+  
+</div>
+<h2>🧐 Features</h2>
 
-List any prerequisites or dependencies users need to have before they can use your project.
+Here're some of the project's best features:
 
-### Installation
+*   Product Listing
+*   Google Sign-In
+*   Push Notification
+*   Current Location Weather
+*   video
+*   firebase chat-bot
 
-Provide step-by-step instructions on how to install your project. Include any necessary commands or configurations.
+<h2>🛠️ Installation Steps:</h2>
 
-```bash
-# Example installation commands
-git clone https://github.com/saurabhBhardwaj07/kisan_facility_flutter.git
-cd kisan_facility_flutter
-flutter pub get
-flutter run
+<p>1. git clone https://github.com/saurabhBhardwaj07/kisan_facility_flutter.git cd</p>
+
+<p>2. flutter pub get</p>
+
+<p>3. flutter run</p>
+
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   Dart || Flutter
+*   RiverPod
+*   Larvel API
+*   Firebase
+*   Dio
+*   Geo-Locator
+*   Local Notification
+*   Video -Player
